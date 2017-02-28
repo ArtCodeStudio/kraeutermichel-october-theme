@@ -1,0 +1,48 @@
+description = "Info layout"
+==
+<!DOCTYPE html>
+<html class ="WorkInProgress">
+    <head>
+        <meta charset="utf-8">
+        <title>{{ this.page.title }}</title>
+        <meta name="description" content="{{ this.page.meta_description }}">
+        <meta name="title" content="{{ this.page.meta_title }}">
+        <meta name="author" content="Pascal Garber, Marc Wensauer">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        {% styles %}
+        {% if this.theme.color %}
+            {% set style = 'assets/scss/theme-' ~ this.theme.color ~ '.scss' %}
+        {% else %}
+            {% set style = 'assets/scss/theme-blue.scss' %}
+        {% endif %}
+        <link href="{{ [style,]|theme }}" rel="stylesheet">
+        <!--?{{ date().timestamp }}-->
+    </head>
+    <body id="{{ str_studly(this.page.title) }}" class="WorkInProgress">
+
+        <div id="mask"></div>
+
+        <div class="">
+            <img class="" id="leaf-logo" src="{{ 'assets/images/icons/icon-04.svg' |theme }}" alt="">
+        </div>
+
+        <section class="WorkInProgress" id="layout-content">
+            {% page %}
+        </section>
+
+        <footer class="row">
+            <div class="col-xs-3" id="teaser-imprint-logo-container">
+                <img class="" src="{{ 'assets/images/icons/logo-2.svg' |theme }}" alt="">
+            </div>
+            <div class="pl-0 col-xs-9" id="teaser-imprint-text-container">
+                <p>
+                    <b>Bald gibt es mehr zu sehen</b> bis dahin erreichst du mich<br>
+                    telefonisch <b>+49 173 5979 184</b> oder per Mail <a class="white-link" href="mailto:hallo@kräutermichel.de"><b> hallo@kräutermichel.de</b></a><br>
+                    Dein Kräutermichel.
+                </p>
+            </div>
+        </footer>
+
+    </body>
+</html>

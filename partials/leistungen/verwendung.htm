@@ -1,0 +1,23 @@
+[viewBag]
+snippetCode = "leistungen-verwendung"
+snippetName = "Leistungen / Verwendung"
+==
+<div id="leistungen-verwendung">
+    <div class="container text-center py-5">
+        
+        <div class="row">            
+            <div class="col-xs-12 text-center">
+                {% partial 'leistungen/_sub_nav.htm' %}
+                <img class="my-3 icon" src="{{ 'assets/images/icons/icon-02.svg' |theme }}" alt="">
+                <h1 class="my-3">Was die alles können</h1>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-xs-8 text-left">
+                {% content 'leistungen/verwendung.htm' %}
+            </div>
+        </div>
+
+    </div>
+</div>

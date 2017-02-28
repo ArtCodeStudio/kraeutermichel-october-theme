@@ -1,0 +1,57 @@
+name: main
+items:
+    -
+        title: Leistungen
+        nesting: '0'
+        type: static-page
+        code: leistungen
+        reference: leistungen
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: leistungen
+            isExternal: '0'
+    -
+        title: Events
+        nesting: '0'
+        type: static-page
+        code: events
+        reference: events
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: events
+            isExternal: '0'
+    -
+        title: 'Kräuter von A bis Z'
+        nesting: '0'
+        type: static-page
+        code: krauter
+        reference: krauter-von-bis-z
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: krauter
+            isExternal: '0'
+    -
+        title: Blog
+        nesting: '0'
+        type: static-page
+        code: blog
+        reference: blog
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: blog
+            isExternal: '0'
+    -
+        title: Kontakt
+        nesting: '0'
+        type: static-page
+        code: kontakt
+        reference: kontakt
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: kontakt
+            isExternal: '0'

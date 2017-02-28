@@ -1,0 +1,10 @@
+
+.btn {
+    &.btn-secondary{
+        &.no-fill-white {
+            border-color: $white;
+            background-color: $transparent;
+            color: $white;
+        }
+    }
+}

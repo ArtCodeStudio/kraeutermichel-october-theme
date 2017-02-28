@@ -1,0 +1,33 @@
+.main-footer {
+    padding-top: 1rem;
+    background-color:$green;
+    
+    #footer-logo-container {
+        img {
+            height: 4.14rem;
+        }
+    }
+
+    #footer-text{
+        color:$white;
+        b{
+            font-family: $font-family-sans-serif-bold;
+        }
+    }
+
+    nav {
+        a {
+            font-size: $font-size-sm;
+        }
+
+        ul {
+            list-style: none;
+            li{
+                a{
+                    color:$white;
+                }
+            }
+        }
+    }
+
+}
