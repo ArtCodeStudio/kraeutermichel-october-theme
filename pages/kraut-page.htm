@@ -21,6 +21,27 @@ slug = "{{ :slug }}"
             </nav>
         </div>  
 
+        {# LEXICON NAV MOBILE #}
+        <div class="row hidden-md-up"> 
+            <nav class="col-xs-12 text-center krauterlist-nav-wrapper pt-1">
+                {% for letter in 'a'..'m' %}     
+                    {% set param =  "?query=#{ letter|upper}" %} 
+                    <a href="{{ this.page.id | page }}/{{param}}"> <h3>{{ letter|upper }}</h3> </a>
+                {% endfor %}
+            </nav>
+            <nav class="col-xs-12 text-center krauterlist-nav-wrapper pb-1">
+                {% for letter in 'n'..'z' %}     
+                    {% if input('page') %}
+                        {% set param = "?query=#{letter|upper}&page=#{input('page')}" %} 
+                    {% else %}
+                        {% set param =  "?query=#{ letter|upper}" %} 
+                    {% endif %}
+                    <a href="{{ this.page.id | page }}/{{param}}"> <h3>{{ letter|upper }}</h3> </a>
+                {% endfor %}
+            </nav>
+        </div>  
+
+
         <div class="row pb-5">            
             <div class="col-xs-12 text-center kraut-wrapper pt-2" >
                  {% component 'KrautPage' %} 
