@@ -1,5 +1,6 @@
 #blogPost {
    #blog-post-wrapper{
+      
         h1 {
             font-family: $font-family-sans-serif-bold;
             //margin: 3rem 0 3rem 0;
@@ -9,8 +10,8 @@
         
         }
         .content{
-            max-width: 39rem;
-            margin: 0 auto;
+            // max-width: 39rem;
+            // margin: 0 auto;
         }
 
         .featured-image {
@@ -21,25 +22,25 @@
         // Extra large devices (large desktops, 1200px and up)
         @media (min-width: 1200px) { 
             .featured-image {
-                padding: 0 16rem !important; 
+                // padding: 0 16rem !important; 
             }
         }
         // LG
         @media (min-width: 992px) and (max-width: 1199px) {
             .featured-image { 
-                padding: 0 10.5rem !important; 
+                // padding: 0 10.5rem !important; 
             }
         }
         // MD
         @media (min-width: 768px) and (max-width: 991px) { 
             .featured-image {
-                padding: 0 2.9rem !important; 
+                // padding: 0 2.9rem !important; 
             }
         }     
 
         // Small devices (landscape phones, 576px and up)
         @media (min-width: 576px) { 
-            padding: 0 0.2rem !important; 
+            // padding: 0 0.2rem !important; 
         }
    }
         

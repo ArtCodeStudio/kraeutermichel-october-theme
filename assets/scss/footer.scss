@@ -1,30 +1,68 @@
+#footer-background {
+    background-color:$green;
+}
+
 .main-footer {
+    $content_height:  4.14rem;
     // padding: 1rem 0 1rem 0;
     .row{
-        
-        background-color:$green;
-        
+       
+        //background-color:$green;
+        display: flex;
+
         #footer-logo-container {
+            display: flex;
+            align-items: center;
             img {
-                height: 4.14rem;
+                height: $content_height;
+                margin-left: -2.4rem;
             }
+        }
+
+        #footer-mobile-container {
+            img {
+                max-width: 12rem;
+            }
+            #footer-text{
+                color: $white;
+            }
+            #mobile-footer-nav{
+                list-style: none;
+                line-height: 2;
+                li{
+                    a{
+                        color: $white;
+                        font-size: $font-size-sm;
+
+                    }
+                }
+            }
+
         }
 
         #flex-wrapper {
 
             display:flex;
             justify-content: space-between;
+           
 
             #footer-text{
+                display: flex;
+                align-items: center;
                 color:$white;
-                b{
-                    font-family: $font-family-sans-serif-bold;
+                div {
+                    height: $content_height;
+                    margin-top: 0.1rem;
+                    b{
+                        font-family: $font-family-sans-serif-bold;
+                    }
+
                 }
             }
 
             nav {
                 .row {
-                    .col{
+                    .col {
                         //width: 10rem;
                         display: flex;
 
@@ -33,14 +71,23 @@
                             font-size: $font-size-sm;
                             color:$white;
                         }
-                        @media (min-width: 991px)  { //and (max-width: 991px)
+                        &.first{
                             width: 10rem;
-                        }   
+                        }
+                        @media (min-width: 991px)  { //and (max-width: 991px)
+                            //width: 10rem;
+                            &.second{
+                                width: 5.4rem;
+                            }
+
+                        }
                     }
+                          
                 }
             }
 
         }
     }
+
 
 }

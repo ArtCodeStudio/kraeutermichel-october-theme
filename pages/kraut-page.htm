@@ -14,13 +14,14 @@ slug = "{{ :slug }}"
         <div class="row hidden-sm-down" > 
             <nav class="col-xs-12 text-center krauterlist-nav-wrapper pt-3">
                 {% for letter in 'a'..'z' %}     
+                    {% set base_url = 'https://kräutermichel.de/krauter-von-bis-z' %}
                     {% set param =  "?query=#{ letter|upper}" %} 
-                    <a href="{{ this.page.id | page }}/{{param}}"> <h3>{{ letter|upper }}</h3> </a>
+                    <a href="{{ base_url }}/{{ param }}"> <h3>{{ letter|upper }}</h3> </a>
                 {% endfor %}
             </nav>
         </div>  
 
-        <div class="row">            
+        <div class="row pb-5">            
             <div class="col-xs-12 text-center kraut-wrapper pt-2" >
                  {% component 'KrautPage' %} 
             </div>

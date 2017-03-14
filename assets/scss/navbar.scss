@@ -9,6 +9,10 @@ $navbar-brand-width: 150px;
     opacity: 1;
     transition: all 500ms ease;
  
+    .navbar-nav{
+        padding-right: 0.8rem;
+    }
+    
     .navbar-brand {
         min-width: 2rem;
         background-repeat: no-repeat;
