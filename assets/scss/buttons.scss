@@ -1,10 +1,62 @@
+// btn btn-secondary no-fill-white 
+
+
+
+@mixin button-no-fill($color) {
+    border-color: $color;
+    background-color: $transparent;
+    color: $color;
+    padding: 0.7rem 2rem;
+    font-size: $font-size-sm;
+    box-shadow:0;
+    transition-delay: 0s;
+    transition-duration: 0.3s;
+    transition-property: box-shadow;
+    transition-timing-function: ease;
+ 
+}
+
+@mixin button-no-fill-hover() {
+    @extend .z-depth-1-half;
+}
+
 
 .btn {
-    &.btn-secondary{
+    &.btn-secondary
+    {
         &.no-fill-white {
-            border-color: $white;
-            background-color: $transparent;
-            color: $white;
+            @include button-no-fill($white);
         }
+        &.no-fill-white:hover{
+            @include button-no-fill-hover($white);
+        }
+
+        &.no-fill-red {
+            @include button-no-fill($red);
+        }
+        &.no-fill-red:hover{
+            @include button-no-fill-hover($red);
+        }
+
+        // &.no-fill-yellow{
+        //     @include button-no-fill($yellow);
+        // }
+        // &.no-fill-yellow:hover{
+        //     @include button-no-fill-yellow($yellow);
+        // }
+
+        // &.no-fill-green{
+        //     @include button-no-fill($green);
+        // }
+        // &.no-fill-green:hover{
+        //     @include button-no-fill-green($green);
+        // }
+
+        // &.no-fill-gray-light{
+        //     @include button-no-fill($gray-light);
+        // }
+        // &.no-fill-gray-light:hover{
+        //     @include button-no-fill-green($gray-light);
+        // }
     }
 }

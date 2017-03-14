@@ -21,17 +21,28 @@ $fa-font-path: '../vendor/font-awesome/fonts';
 $navbar-height:             54px; // TODO get from bootstrap variables or calc this
 $navbar-height-big:         130px;
 
+
 @import "animate";
+@import "shadow.scss";
+@import "cards.scss";
 @import "fonts.scss";
 @import "navbar.scss";
 @import "sidebar.scss";
 @import "sticky.scss";
 @import "location.scss";
 @import "carousel.scss";
-@import "buttons.scss";
 @import "work-in-progress.scss";
+@import "colors.scss";
+@import "buttons.scss";
 @import "leistungen.scss";
 @import "footer.scss";
+@import "slideshow/slideshow.scss";
+@import "slideshow/slideshow-latest-krauter.scss";
+@import "blog/blog.scss";
+@import "blog/blogPost.scss";
+@import "homepage.scss";
+@import "krauter.scss";
+@import "pagination.scss";
 
 /**
  * @see http://joshbroton.com/quick-fix-sass-mixins-for-css-keyframe-animations/
@@ -88,6 +99,10 @@ body {
 
 h1, h2, h3, h4, h5, h6, .display-1, .display-2, .display-3, .display-4 {
     color: $brand-primary;
+}
+
+b{
+    font-family: $font-family-sans-serif-bold;
 }
 
 .display-4 {
@@ -299,5 +314,16 @@ h1, h2, h3, h4, h5, h6, .display-1, .display-2, .display-3, .display-4 {
         a {
             color: #eceeef;
         }
+    }
+}
+
+.main-wrapper {
+    min-height: 56rem;
+}
+
+.teaser-wrapper {
+
+    a{
+        font-family: $font-family-sans-serif-bold;
     }
 }

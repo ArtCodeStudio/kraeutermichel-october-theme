@@ -1,0 +1,35 @@
+title = "Blog"
+url = "/blog"
+layout = "default"
+is_hidden = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 4
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog"
+postPage = "blogpost"
+==
+<div id="blog" data-target="#blog">
+    <div class="container text-xs-center py-5">
+        
+        <div class="row"  id="blog-header-text-wrapper">
+            <div class="col-xs-12">
+                {# BLOG HEADER TEXT #}
+                <div class="text-center">
+                    <div class='header_text mb-4'>„Man soll dem Leib etwas Gutes tun, damit die Seele Lust hat, darin zu wohnen“</div>
+                    <p style="text-align: center;">Kräutermichel berichtet, erzählt und gibt wertvolle Tipps im Umgang mit Kräutern. <br>
+                        Was Sie alles können und worauf du nicht verzichten solltest, erfährst du hier:
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        {# BLOG POST  LIST #}
+        <div id="blog-list-wrapper">
+            {% component 'blogPosts' %}
+        </div>
+
+    </div>
+</div>

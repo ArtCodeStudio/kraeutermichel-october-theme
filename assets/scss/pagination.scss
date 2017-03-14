@@ -1,0 +1,9 @@
+.pagination{
+    display: flex;
+    justify-content: center !important;
+    li {
+        a,span {
+            padding: .5rem .75rem;
+        }
+    }
+}

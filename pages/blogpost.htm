@@ -1,0 +1,19 @@
+title = "BlogPost"
+url = "/blog/:slug"
+layout = "default"
+is_hidden = 0
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "blog"
+==
+<div id="blogPost" data-target="#blogPost">
+    <div class="container text-xs-center py-5">
+        <div class="row">
+            
+            <div class="col-xs-12" id="blog-post-wrapper">
+                {% component 'blogPost' %}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+#blog {
+
+    #blog-header-text-wrapper {
+        
+        .header_text {
+            line-height: 3rem;
+            font-family: $font-family-sans-serif-bold;
+            font-size: $font-size-h1;
+            color: $black;
+            max-width: 50.81rem;
+            margin: 0 auto;
+          
+        }
+        
+        p{
+            font-size: 1.3rem;
+            //font-weight: bold;
+            line-height: 1.9rem
+        }
+
+    }
+
+    #blog-list-wrapper {
+        margin-top:6rem;
+        width: 100%;
+
+        .blog-post-list-row {
+
+            .featured-images {
+                
+            }
+            
+            .excerpt-wrapper{
+            
+                h1 {
+                    font-family: $font-family-sans-serif-bold;
+                    color: $yellow;
+                }
+            
+                .excerpt {
+
+                }
+            
+                a{
+                    font-family: $font-family-sans-serif-bold;
+                    color:$yellow;
+
+                }
+            }
+        }
+        
+
+    }
+
+}

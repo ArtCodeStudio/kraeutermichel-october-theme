@@ -1,0 +1,43 @@
+[viewBag]
+==
+<div id="slideshow-krauter"> 
+
+    <div id="slideshow-krauter-row">
+        <div class="py-3">
+            {% component 'slideshowKrauterHTML' %}
+        </div>
+    </div>
+    <script>
+
+    $(document).ready( function() {
+  
+        /**
+        * Latest Krauter Carousel
+        */
+        var initSlideshowKrauter = function () {
+
+            var $slideshowKrauter = $("#slideshowKrauterHTML");
+
+            // only init if slick is not already initialized
+            if( !$slideshowKrauter.hasClass('slick-initialized') ) {
+                console.log('init slideshow krauter');
+                $slideshowKrauter.slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoplay: false,
+                    autoplaySpeed: 2000,
+                    centerMode: true,
+                    centerPadding: '0',
+                    infinite: true,
+                    dots: true,
+                    arrows: false,
+                });
+            }
+           
+        };
+       initSlideshowKrauter();
+    });
+
+    </script>
+     
+</div>

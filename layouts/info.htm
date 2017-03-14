@@ -27,22 +27,63 @@ description = "Info layout"
             <img class="" id="leaf-logo" src="{{ 'assets/images/icons/icon-04.svg' |theme }}" alt="">
         </div>
 
+        {# CONTENT #}
         <section class="WorkInProgress" id="layout-content">
             {% page %}
         </section>
 
-        <footer class="row">
-            <div class="col-xs-3" id="teaser-imprint-logo-container">
-                <img class="" src="{{ 'assets/images/icons/logo-2.svg' |theme }}" alt="">
-            </div>
-            <div class="pl-0 col-xs-9" id="teaser-imprint-text-container">
-                <p>
-                    <b>Bald gibt es mehr zu sehen</b> bis dahin erreichst du mich<br>
-                    telefonisch <b>+49 173 5979 184</b> oder per Mail <a class="white-link" href="mailto:hallo@kräutermichel.de"><b> hallo@kräutermichel.de</b></a><br>
-                    Dein Kräutermichel.
-                </p>
-            </div>
-        </footer>
+        {# FOOTER #}
+            {# DESKTOP #}
+            <footer class="row hidden-sm-down fixed">
+                <div class="col-xs-3" id="teaser-imprint-logo-container">
+                    <img class="" src="{{ 'assets/images/icons/logo-2.svg' |theme }}" alt="">
+                </div>
+
+                <div class="pl-0 col-xs-9" id="teaser-imprint-text-container">
+                    <p>
+                        <b>Bald gibt es mehr zu sehen</b> bis dahin erreichst du mich<br>
+                        telefonisch <b>+49 173 5979 184</b> oder per Mail <a class="white-link" href="mailto:hallo@kräutermichel.de"><b> hallo@kräutermichel.de</b></a><br>
+                        Dein Kräutermichel.
+                    </p>
+                </div>
+            </footer>
+
+            {# MOBILE #}
+            <footer class="hidden-md-up fixed mobile">   
+                <div class="row">
+                    <div class="col-xs-3 mobile" id="teaser-imprint-logo-container">
+                        <img class="" src="{{ 'assets/images/icons/logo-2.svg' |theme }}" alt="">
+                    </div>
+                    <div class="pl-5 col-xs-9" id="teaser-imprint-text-container">
+                        <p>
+                            <b>Bald gibt es mehr zu sehen</b> <br> 
+                            bis dahin erreichst du <br> 
+                            mich telefonisch: <br> 
+                            <b>+49 173 5979 184</b> <br> 
+                            oder per Mail: <br> 
+                            <a class="white-link" href="mailto:hallo@kräutermichel.de"><b> hallo@kräutermichel.de</b></a><br>
+                            Dein Kräutermichel.
+                        </p>
+                    </div>
+                </div>
+            </footer>
+
+            {# LANDSCAPE #}
+            <!--<footer class="hidden-md-up  hidden-sm-down  fixed">   
+                <div class="row">
+                    <div class="col-xs-3 mobile" id="teaser-imprint-logo-container">
+                        <img class="" src="{{ 'assets/images/icons/logo-2.svg' |theme }}" alt="">
+                    </div>
+                    <div class="pl-5 col-xs-9" id="teaser-imprint-text-container">
+                    <p>
+                        <b>Bald gibt es mehr zu sehen</b> bis dahin erreichst du mich<br>
+                        telefonisch: <b>+49 173 5979 184</b> 
+                        <br>oder per Mail <a class="white-link" href="mailto:hallo@kräutermichel.de"><b> hallo@kräutermichel.de</b></a><br>
+                        Dein Kräutermichel.
+                    </p>
+                    </div>
+                </div>
+            </footer>-->
 
     </body>
 </html>

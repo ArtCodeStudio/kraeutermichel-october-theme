@@ -1,26 +1,117 @@
 [viewBag]
 snippetCode = "leistungen-krauter"
 snippetName = "Leistungen / Kräuter"
-==
-<div id="leistungen-krauter">
-    <div class="container text-center py-5">
 
-        <div class="row">
-            <div class="col-xs-12 text-center">
-                {% partial 'leistungen/_sub_nav.htm' %}
-                <img class="my-3 icon" src="{{ 'assets/images/icons/icon-01.svg' |theme }}" alt="">
-                <h1 class="my-3">Kräuter in aller Munde</h1>
+[slideshow slideshowLeistungHTML]
+slideshow = 3
+initAuto = 1
+includeHTML = 1
+includeJavaScript = 1
+injectSlickAssets = 0
+injectSlickTheme = 0
+injectJLSlideshowCSS = 0
+injectJQuery = 0
+showCaptions = 1
+captionPosition = "middle center"
+adaptiveHeight = 0
+centerMode = 0
+centerPadding = "0px"
+autoplayOnShow = 1
+nextSlideOnEnd = 1
+autoplay = 0
+fade = 0
+infinite = 1
+slidesToShow = 1
+rtl = 0
+waitForAnimate = 1
+accessibility = 1
+arrows = 1
+dots = 0
+draggable = 1
+focusOnSelect = 0
+pauseOnFocus = 1
+pauseOnHover = 1
+pauseOnDotsHover = 0
+swipe = 1
+swipeToSlide = 0
+touchMove = 1
+verticalSwiping = 0
+useResize = 0
+thumbWidth = 0
+thumbHeight = 0
+thumbMode = "auto"
+thumbQuality = 95
+thumbFiletype = "jpg"
+mobileFirst = 0
+respondTo = "window"
+useCSS = 1
+useTransform = 1
+variableWidth = 0
+vertical = 0
+
+==
+
+<div id="leistungen-krauter">
+
+    <div class="container text-center pt-2">
+
+        <div class="row">            
+            <div class="col-xs-12 text-center nav-wrapper">
+                {% partial 'leistungen/_sub_nav.htm' active="krauter" %}
             </div>
         </div>
-
+    
+        <div class="row">
+            <div class="col-xs-12 text-center" id="leistung-icon">
+                <img class="my-1 icon" src="{{ 'assets/images/icons/icon-01.svg' |theme }}" alt="">
+            </div>
+        </div>
+    
         <div class="row justify-content-center">
+            
+            <h1 class="mt-1 mb-3">Kräuter in aller Munde</h1>
+            
             <div class="col-xs-8 text-left">
                 {% content 'leistungen/krauter.htm' %}
+                <div class="py-3"> 
+                    {% component 'slideshowLeistungHTML' %}
+                </div>
             </div>
+
         </div>
-
+    
     </div>
+
+
+    {% partial 'leistungen/_carousel-krauter-von-a-bis-z'%}
+
+    <script>
+        $(document).ready( function() {
+
+            var initSlideshowKrauter = function () {
+
+                var $slideshowKrauter = $("#slideshowLeistungHTML");
+
+                // only init if slick is not already initialized
+                if( !$slideshowKrauter.hasClass('slick-initialized') ) {
+                    console.log('init slideshow krauter');
+                    $slideshowKrauter.slick({
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        autoplay: false,
+                        autoplaySpeed: 2000,
+                        centerMode: true,
+                        centerPadding: '0',
+                        infinite: true,
+                        dots: true,
+                        arrows: false,
+                    });
+                }
+            
+            };
+        initSlideshowKrauter();
+        });
+    </script>
+
+
 </div>
-
-
-<!--font-size-sm-->

@@ -1,0 +1,74 @@
+{# 
+    Parent:  <div id="blog-list-wrapper"> 
+#}
+{% set posts = __SELF__.posts %}
+
+    {% for post in posts %}
+
+        {% if post.featured_images.count %}
+            {% set image = post.featured_images[0].thumb(auto,350)%}
+        {% else %}
+            {% set image = 'https://kräutermichel.de/storage/app/media/Kraeuter_von_A_bis_Z/Platzhalter.jpg' %}
+        {% endif %}
+        
+        {# MD - XL #}
+        <div class="row blog-post-list-row mb-5 hidden-sm-down"> 
+
+            {# FEATURED IMAGE #}
+            <div class="col-xs-6">
+
+
+                <div class="featured-images text-center "> 
+                    <div class="background-box ratio-4-3" 
+                            style="display:block; background-image: url({{ image }});" 
+                            title="{{ image.description }}">
+                    </div>
+                </div>
+            </div>
+
+            {# EXCERPT #}
+            <div class="col-xs-6 excerpt-wrapper">
+                <h1>{{ post.title }}</h1>
+                <p class="excerpt">{{ post.summary }}</p>
+                <a href="{{ post.url }}" class="">mehr lesen</a>
+            </div>
+
+        </div>
+
+
+        {# XS - SM #}
+        <div class="row blog-post-list-row mb-5 text-sm-center hidden-md-up"> 
+
+            {# FEATURED IMAGE #}
+            <div class="col-xs-12">
+                {% if post.featured_images.count %}
+                    <div class="featured-images text-center "> 
+                        {% set image = post.featured_images[0].thumb(auto,350)%}
+                        <div class="background-box ratio-4-3" 
+                                style="display:block; background-image: url({{ image }});" 
+                                title="{{ image.description }}">
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+
+            {# EXCERPT #}
+            <div class="col-xs-12 excerpt-wrapper mt-2">
+                <h1>{{ post.title }}</h1>
+                <p class="excerpt">{{ post.summary }}</p>
+                <a href="{{ post.url }}" class="">mehr lesen</a>
+            </div>
+
+        </div>
+
+    {% endfor %}
+
+
+    {# PAGINATION #}
+    <div class="row"> 
+        <div class="col-xs-12 text-center krauterlist-pagination-wrapper pt-1">
+
+            {{ posts.render|raw }}
+        </div>
+    </div>
+

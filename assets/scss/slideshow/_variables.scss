@@ -1,0 +1,18 @@
+$slick-font-path: "./slideshow/fonts/" !default;
+$slick-font-family: "FontAwesome";//"slick" !default;
+$slick-loader-path: "./slideshow/" !default;
+$slick-arrow-color: white !default;
+$slick-dot-color: $green; //black !default;
+$slick-dot-color-active: $slick-dot-color !default;
+$slick-prev-character: $fa-var-chevron-left; //"\2190" !default;
+$slick-next-character: $fa-var-chevron-right; //"\2192" !default;
+$slick-dot-character: "\2022" !default;
+$slick-dot-size: 28px; //6px !default;
+$slick-opacity-default: 0.75 !default;
+$slick-opacity-on-hover: 1 !default;
+
+$slick-active-dot-character: "•" !default;
+$slick-opacity-not-active: 0.5;//1 !default;
+$slick-arrow-opacity-on-hover: 1 !default;
+$slick-arrow-opacity-disabled: 0.4 !default;
+

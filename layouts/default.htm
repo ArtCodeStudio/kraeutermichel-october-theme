@@ -53,32 +53,23 @@ function onMailSent() {
             {% set style = 'assets/scss/theme-blue.scss' %}
         {% endif %}
         <link href="{{ [style,]|theme }}" rel="stylesheet">
+        {% partial "_head_scripts" %} 
     </head>
     <body id="{{ str_studly(this.page.title) }}" data-spy="scroll">
         
         {# Content #}
         <section id="layout-content">
-            {% partial 'navigation' %}
+            {% partial 'navigation/navigation' class="bg-white-transparent" %}
             {% page %}
         </section>
         
-
+        {% partial 'footer' %}
         {# Scripts #}
-        <script src="{{ [
-            'assets/vendor/within-viewport/withinviewport.js',
-            'assets/vendor/jquery/dist/jquery.js',
-            'assets/vendor/jquery-ui/jquery-ui.js',
-            'assets/vendor/within-viewport/jquery.withinviewport.js',
-            'assets/vendor/tether/dist/js/tether.js',
-            'assets/vendor/bootstrap-backward/dist/js/bootstrap.js',
-            'assets/vendor/simpler-sidebar/dist/jquery.simpler-sidebar.js',
-            'assets/vendor/Stickyfill/dist/stickyfill.js',
-            'assets/vendor/bootstrap-validator/dist/validator.js',
-            'assets/vendor/leaflet/dist/leaflet.js',
-            
-            'assets/javascript/app.js',
-        ]|theme }}"></script>
-        
+
+       {# 
+            {% partial "_foot_scripts" %}  
+        #}
+
         {% framework %}
         
         {# More theme variables #}
@@ -86,6 +77,8 @@ function onMailSent() {
             L.Icon.Default.imagePath = "/themes/{{this.theme.dirname}}/assets/vendor/leaflet/dist/images/";
         </script>
         {% scripts %}
+
+   
 
     </body>
 </html>

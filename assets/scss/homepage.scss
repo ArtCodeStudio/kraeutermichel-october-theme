@@ -1,0 +1,133 @@
+#homepage-blog-teaser {
+    
+    h1 {
+        color: $black;
+    }
+
+    a {
+        height:100%;
+        width:100%;
+    }
+
+
+    .title-mask {
+        height:100%;
+        width:100%; 
+        position: absolute;
+        top: 0;   
+        color: $black;
+        display: flex;
+        align-items: center;
+        font-size: $font-size-h1;
+        font-family: $font-family-sans-serif-bold;
+        justify-content: center;
+        padding:1rem;
+        transition: opacity 0.1s ease-in-out;
+        background-color:  transparentize($white, 0.1); 
+        opacity:0;
+        &:hover {
+            opacity:1;
+            //background-color:  transparentize($white, 0.1); 
+        }
+        &.krauter{
+            color: $green;
+        }
+        &.verwendung{
+            color: $red;
+        }
+    }
+
+    .main-item {
+        // XL
+        @include media-breakpoint-only(xl) {
+            .background-box{
+                &.ratio-home {
+                    padding-top: 85.7%;
+                }
+            }
+            .title-mask {
+                width: 35rem
+            }
+        }
+        // LG
+        @media (min-width: 992px) and (max-width: 1199px) {
+            .background-box{
+                &.ratio-home {
+                    padding-top: 87%;
+                }
+            }
+            .title-mask {
+                width: 29rem;
+            }
+        }
+        // MD
+        @media (min-width: 768px) and (max-width: 991px) { 
+            .background-box{
+                &.ratio-home {
+                    padding-top: 89.2%;
+                }
+            }
+            .title-mask {
+               // height: 8.6rem;
+                width: 21.5rem;
+            }
+        }     
+    }
+    .item-1, .item-2 {
+        // XL
+        @include media-breakpoint-only(xl) {
+            .title-mask {
+                height: 14rem;
+                width: 34.57rem
+            }
+        }
+        //LG
+        // @include media-breakpoint-only(lg) { // klappt nicht !
+        @media (min-width: 992px) and (max-width: 1199px) {
+            .title-mask {
+                height: 11.9rem;
+                width: 29rem;
+            }
+        }
+        //MD
+        @media (min-width: 768px) and (max-width: 991px) { 
+            .title-mask {
+                height: 8.9rem;
+                width: 21.5rem;
+            }
+        }
+    }
+
+    .item-2 {
+        // XL
+        @include media-breakpoint-only(xl) {
+            .title-mask {
+                top: 15.7rem;
+            }
+        }
+        // LG
+        @media (min-width: 992px) and (max-width: 1199px) {
+            .title-mask {
+                top: 13.5rem;
+            }
+        }
+        // MD
+        @media (min-width: 768px) and (max-width: 991px) { 
+            .title-mask {
+                top: 10.5rem;
+            }
+        }
+    }
+
+
+
+}
+
+
+/*
+@include media-breakpoint-only(xs) { ... }
+@include media-breakpoint-only(sm) { ... }
+@include media-breakpoint-only(md) { ... }
+@include media-breakpoint-only(lg) { ... }
+@include media-breakpoint-only(xl) { ... }
+*/

@@ -13,6 +13,14 @@ var changeNavbar = function () {
         $('#main-navbar').addClass('bg-white-transparent');
         $('#main-navbar, #sidebar').removeClass('bg-white');
     }
+
+    if (windowScrollTop === 0) {
+        $('#main-navbar').removeClass('bg-white-transparent');
+    }else{
+         $('#main-navbar').addClass('bg-white-transparent');
+    }
+    // console.log('actionPosition',actionPosition);
+    // console.log('windowScrollTop',windowScrollTop);
 }
 
 /**

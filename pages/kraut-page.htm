@@ -1,0 +1,30 @@
+title = "KrautPage"
+url = "/krauter-von-bis-z/:slug"
+layout = "default"
+is_hidden = 0
+
+[KrautPage]
+slug = "{{ :slug }}"
+==
+<div id="krauter-von-a-bis-z-kraut">
+
+    <div class="container text-center pt-3">
+
+        {# LEXICON NAV #}
+        <div class="row hidden-sm-down" > 
+            <nav class="col-xs-12 text-center krauterlist-nav-wrapper pt-3">
+                {% for letter in 'a'..'z' %}     
+                    {% set param =  "?query=#{ letter|upper}" %} 
+                    <a href="{{ this.page.id | page }}/{{param}}"> <h3>{{ letter|upper }}</h3> </a>
+                {% endfor %}
+            </nav>
+        </div>  
+
+        <div class="row">            
+            <div class="col-xs-12 text-center kraut-wrapper pt-2" >
+                 {% component 'KrautPage' %} 
+            </div>
+        </div>
+
+    </div>
+</div>

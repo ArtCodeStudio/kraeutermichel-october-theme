@@ -1,0 +1,32 @@
+{#parent 
+  <div class="row">            
+            <div class="col-xs-12 text-center kraut-wrapper pt-1" style="min-height:1000px">
+ #}
+
+<h1 class="green">{{ kraut.name| uppercase }}</h1>
+<p class="">{{ kraut.name_latein }}</p>
+
+
+{% if kraut.image  %}
+    {% set image = kraut.image|mediathumb_resize('width', 350) %}
+{% else %}
+    {% set image = 'https://kräutermichel.de/storage/app/media/Kraeuter_von_A_bis_Z/Platzhalter.jpg' %}
+{% endif %}
+
+<div class="featured-image text-left mt-2"> 
+    <div class="background-box ratio-4-3" 
+            style="display:block; background-image: url({{ image }});" 
+            title="{{ image.description }}">
+    </div>
+</div>		
+
+
+<div class="text-left kraut-content-wrapper mt-3">
+    {{kraut.description|raw}}
+</div>
+
+
+
+
+
+

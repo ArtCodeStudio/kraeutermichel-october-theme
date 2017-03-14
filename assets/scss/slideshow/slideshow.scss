@@ -1,0 +1,257 @@
+@import 'variables';
+@import 'slick.scss';
+@import 'slick-theme.scss';
+
+
+// text positions
+.carousel-caption-wrapper {
+    position: absolute;
+    display: flex;
+    .carousel-caption-wrapper.top {
+        top: 0;
+        padding-top: 0;
+    }
+    
+    &.center {
+        left: 0;
+        right: 0;
+        text-align: center;
+        margin: auto;
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        img {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+    
+    &.middle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        bottom: 0;
+        top: 0;
+        height: 100%;
+    }
+    
+    &.bottom {
+        bottom: 0;
+        padding-bottom: 0;
+    }
+    
+    &.left {
+        left: 0;
+        right: inherit;
+    }
+    
+    &.right {
+        left: inherit;
+        right: 0;
+    }
+    
+    .carousel-caption-content {
+        padding: 15px;
+    }
+}
+
+// needed for textposition
+.slick-list {
+    .slick-slide {
+        position: relative;
+    }
+}
+
+// additional styles for dots
+.slick-dots {
+    li {
+        button {
+            &:before {
+                content: $slick-dot-character;
+            }
+            &:hover {
+                &:before {
+                    content: $slick-active-dot-character;
+                }
+            }
+        }
+        &.slick-active {
+            button {
+                &:before {
+                    content: $slick-active-dot-character;
+                }
+            }
+        }
+    }
+}
+
+// for vertical dots
+.slick-dots-vertical {
+    display: block;
+    top: 0;
+    left: 0;
+    width: 50px;
+    li {
+        button {
+        }
+        &.slick-active {
+            button {
+            }
+        }
+    }
+}
+
+// additional style for prev and next
+.slick-prev,
+.slick-next {
+    &:hover, &:focus {
+        &:before {
+            opacity: $slick-arrow-opacity-on-hover;
+        }
+    }
+    &.slick-disabled:before {
+        opacity: $slick-arrow-opacity-disabled;
+    }
+}
+
+
+/*
+ * ASPECT RATIO for background images
+ *
+ * @authors Marc Hinse, Pascal Garber
+ * @see: http://www.jumplink.eu/blog/post/onlineshop-immer-einheitlich-grosse-produktbilder
+ * @see: http://www.mademyday.de/css-height-equals-width-with-pure-css.html
+ */
+.background-box {
+	background-size: cover;
+	background-position: center center;
+
+	width: 100%;
+	padding-top: 100%; // Default 1-1 aspect ratio
+
+	&.ratio-1-1 {
+		padding-top: 100%;
+	}
+	&.ratio-2-1 {
+		padding-top: 50%;
+	}
+	&.ratio-1-2 {
+		padding-top: 200%;
+	}
+	&.ratio-4-3 {
+		padding-top: 75%;
+	}
+	&.ratio-5-2 {
+		padding-top: 40%;
+	}
+	&.ratio-16-9 {
+		padding-top: 56.25%;
+	}
+	&.ratio-3-4 {
+		padding-top: 133.33%;
+	}
+
+}
+
+.box {
+	position: relative;
+	width: 100%;		/* desired width */
+
+	.content, img, video {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+	}
+	&:before {
+		content: "";
+		display: block;
+		padding-top:  56.25%;
+
+	}
+
+	&.ratio-1-1:before {
+		padding-top: 100%;
+	}
+	&.ratio-2-1:before {
+		padding-top: 50%;
+	}
+	&.ratio-1-2:before {
+		padding-top: 200%;
+	}
+	&.ratio-4-3:before {
+		padding-top: 75%;
+	}
+    &.ratio-5-2 {
+		padding-top: 40%;
+	}
+	&.ratio-16-9:before {
+		padding-top: 56.25%;
+	}
+	&.ratio-3-4:before {
+		padding-top: 133.33%;
+	}
+}
+
+
+
+// –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+
+
+#slideshowHomeHTML {
+    .mask{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+    }
+    .carousel-caption-wrapper {
+        
+        top: 0;
+        font-size: $font-size-base;
+        font-family: $font-family-sans-serif-bold;
+        left: 4vw;
+        padding: 3vw;
+        text-align: center;
+        
+            
+        // Extra large devices (large desktops, 1200px and up)
+        @media (min-width: 1200px) { 
+            top: 15vw !important;
+            left: 12vw !important;
+            text-align: left !important;
+           
+        }
+        // LG
+        @media (min-width: 992px) and (max-width: 1199px) {
+            top: 13vw !important;
+            left: 12vw !important;
+            text-align: left !important;
+        }
+        // MD
+        @media (min-width: 768px) and (max-width: 991px) { 
+            top: 11vw !important;
+            left: 12vw !important;
+             text-align: left !important;
+           
+        }     
+
+        // Small devices (landscape phones, 576px and up)
+        @media (min-width: 576px) and (max-width: 767px) { 
+            top: 5vw !important;
+            left: 12vw !important;
+            text-align: center !important;
+            
+        }
+
+        .carousel-caption-content{
+            h1 {
+                color: $white;
+            }
+            color: $white;
+        }
+    }
+}
+

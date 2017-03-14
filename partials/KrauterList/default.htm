@@ -1,0 +1,61 @@
+[viewBag]
+==
+<?php
+use JumpLink\KrauterVonBisZ\Models\Kraut as Kraut;
+
+function onStart()
+{
+   
+   // $this['krauter'] = Kraut::all();
+   // var_dump(Input::get("page") );
+    // var_dump(Input::get("query") );
+  
+  
+}
+?>
+==
+{##
+# Parent : .krauterlist-wrapper
+#}
+
+{#
+ # GRID 
+ #}
+<div class="grid _hidden-sm-down" >
+    {% for kraut in krauter %}
+
+        {#<div class="grid-item">#}
+        <a class="grid-item" href="https://xn--krutermichel-hcb.de/krauter-von-bis-z/{{kraut.slug}}">
+            
+            {% if kraut.image  %}
+                {% set image = kraut.image|mediathumb_resize('width', 350) %}
+            {% else %}
+                {% set image = 'https://kräutermichel.de/storage/app/media/Kraeuter_von_A_bis_Z/Platzhalter.jpg' %}
+            {% endif %}
+            <div class="featured-image text-center "> 
+                <div class="background-box ratio-4-3" 
+                        style="display:block; background-image: url({{ image }});" 
+                        title="{{ image.description }}">
+                </div>
+            </div>				
+        
+            <div class="card-block pt-1 pl-0 text-xs-center text-md-left">
+	            {#<a href="https://xn--krutermichel-hcb.de/krauter-von-bis-z/{{kraut.slug}}">#}
+                    <h4 class="card-title text-xs-center text-serif">{{ kraut.name }}</h4>
+                {#</a>#}
+            </div>
+        {#</div>#}
+        </a>
+    {% endfor %} 
+
+</div>
+
+
+
+{##
+# JavaScript
+#}
+{#{% if __SELF__.property('includeJavaScript') %}
+
+
+{% endif %}#}

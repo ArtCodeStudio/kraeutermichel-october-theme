@@ -471,6 +471,12 @@ form:
                 default: 
                 tab: Bootstrap 4.0.0-alpha.6
                 assetVar: font-family-sans-serif-bold
+            bs4-font-family-sans-serif-italic:
+                type: text
+                label: font-family-sans-serif-italic
+                default: 
+                tab: Bootstrap 4.0.0-alpha.6
+                assetVar: font-family-sans-serif-italic
             bs4-font-family-serif:
                 type: text
                 label: font-family-serif
@@ -3451,4 +3457,4 @@ form:
             default: info@domain.ltd
 require:
     - RainLab.Pages
-    - Flosch.Slideshow
+    - JumpLink.Slideshow

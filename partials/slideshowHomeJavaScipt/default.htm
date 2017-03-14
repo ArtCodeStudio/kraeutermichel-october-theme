@@ -1,0 +1,203 @@
+{% if __SELF__.slideshow.slides %} 
+
+		<script type="text/javascript">
+
+			/**
+			* INIT
+			*/
+			var {{ str_camel(__SELF__.alias) }}Init = function (selector) {
+				
+				// console.log('{{ str_camel(__SELF__.alias) }}Init', 'called');
+				
+				var slideshow = {
+					$slider: null,
+					settings: null,
+					videoSlideSelector: null,
+					imageSlideSelector: null,
+					slides: {
+						length: {{__SELF__.slideshow.slides|length}},
+					}
+				};
+				// console.log(selector)		
+				var playingVideo = null;
+				
+				if( selector ) {
+					slideshow.$slider = $(selector);
+					slideshow.videoSlideSelector = selector+'-slide-[index]-video';
+					slideshow.imageSlideSelector = selector+'-slide-[index]-image';
+						
+				} else {
+					slideshow.$slider = $('#{{ str_camel(__SELF__.alias) }}');
+					slideshow.videoSlideSelector = '#{{ str_camel(__SELF__.alias) }}-slide-[index]-video';
+					slideshow.imageSlideSelector = '#{{ str_camel(__SELF__.alias) }}-slide-[index]-image';
+				}
+
+
+				// stop here if slick is already initialized
+				if ( slideshow.$slider.hasClass('slick-initialized') ) {
+					// console.log('already initialized');
+					// slideshow.$slider.slick('unslick').slick('reinit');
+					//slideshow.$slider.slick('setPosition');
+					return false;
+				}
+			 
+				slideshow.settings = {
+					{{ __SELF__.property('accessibility') == 0 ? '//' : '' }}    accessibility:      Boolean( {{ __SELF__.property('accessibility') }} ) === true,
+					{{ __SELF__.property('adaptiveHeight') == 0 ? '//' : '' }}   adaptiveHeight:     Boolean( {{ __SELF__.property('adaptiveHeight') }} ) === true,
+					{{ __SELF__.property('autoplay') == 0 ? '//' : '' }}         autoplay:           Boolean( {{ __SELF__.property('autoplay') }} ) === true,
+					{{ __SELF__.property('autoplaySpeed') == 0 ? '//' : '' }}    autoplaySpeed:      Number( {{ __SELF__.property('autoplaySpeed') }} ),
+					{{ __SELF__.property('arrows') == 0 ? '//' : '' }}           arrows:             Boolean( {{ __SELF__.property('arrows') }} ) === true,
+					{{ __SELF__.property('asNavFor') == blank ? '//' : '' }}         asNavFor:           String("{{ __SELF__.property('asNavFor') }}"), 
+					{{ __SELF__.property('appendArrows') == blank ? '//' : '' }}     appendArrows:       String("{{ __SELF__.property('appendArrows') | raw}}"),
+					{{ __SELF__.property('appendDots') == blank ? '//' : '' }}       appendDots:         {{ __SELF__.property('appendDots') | raw}},
+					{{ __SELF__.property('prevArrow') == blank ? '//' : '' }}        prevArrow:          String('{{ __SELF__.property("prevArrow") | raw}}'),
+					{{ __SELF__.property('nextArrow') == blank ? '//' : '' }}        nextArrow:          String('{{ __SELF__.property("nextArrow") | raw}}'),
+					{{ __SELF__.property('centerMode') == 0 ? '//' : '' }}       centerMode:         Boolean("{{ __SELF__.property('centerMode') }}") === true,
+					{{ __SELF__.property('centerPadding') == blank ? '//' : '' }}    centerPadding:      String("{{__SELF__.property('centerPadding')}}"),
+					{{ __SELF__.property('cssEase') == blank ? '//' : '' }}          cssEase:            String("{{__SELF__.property('cssEase')}}"),
+					{{ __SELF__.property('customPaging') == blank ? '//' : '' }}     customPaging:       {{__SELF__.property('customPaging') | raw}} ,
+					{{ __SELF__.property('dots') == 0 ? '//' : '' }}             dots:               Boolean( {{ __SELF__.property('dots') }} ) === true,
+					{{ __SELF__.property('dotsClass') == blank ? '//' : '' }}        dotsClass:          String("{{__SELF__.property('dotsClass')}}"),
+					{{ __SELF__.property('draggable') == 0 ? 'draggable:false' : 'draggable:true'}},       
+					{{ __SELF__.property('fade') == 0 ? '//' : '' }}             fade:               Boolean( {{ __SELF__.property('fade') }} ) === true,
+					{{ __SELF__.property('focusOnSelect') == 0 ? '//' : '' }}    focusOnSelect:      Boolean( {{ __SELF__.property('focusOnSelect') }} ) === true,
+					{{ __SELF__.property('easing') == blank ? '//' : '' }}           easing:             String("{{__SELF__.property('easing')}}"),
+					{{ __SELF__.property('edgeFriction') == blank ? '//' : '' }}     edgeFriction:       parseFloat({{__SELF__.property('edgeFriction')}}),
+					{{ __SELF__.property('infinite') == 0 ? '//' : '' }}         infinite:           Boolean( {{ __SELF__.property('infinite') }} ) === true,
+					{{ __SELF__.property('initialSlide') == blank ? '//' : '' }}     initialSlide:       Number( {{ __SELF__.property('initialSlide') }} ),
+					{{ __SELF__.property('lazyLoad') == blank ? '//' : '' }}         lazyLoad:           String("{{__SELF__.property('lazyLoad')}}"),
+					{{ __SELF__.property('mobileFirst') == 0 ? '//' : '' }}      mobileFirst:        Boolean( {{ __SELF__.property('mobileFirst') }} ) === true,
+					{{ __SELF__.property('pauseOnFocus') == 0 ? '//' : '' }}     pauseOnFocus:       Boolean( {{ __SELF__.property('pauseOnFocus') }} ) === true,
+					{{ __SELF__.property('pauseOnHover') == 0 ? '//' : '' }}     pauseOnHover:       Boolean( {{ __SELF__.property('pauseOnHover') }} ) === true,
+					{{ __SELF__.property('pauseOnDotsHover') == 0 ? '//' : '' }} pauseOnDotsHover:   Boolean( {{ __SELF__.property('pauseOnDotsHover') }} ) === true,
+					{{ __SELF__.property('respondTo') == blank ? '//' : '' }}        respondTo:          String("{{__SELF__.property('respondTo')}}"),
+					{{ __SELF__.property('responsive') == blank ? '//' : '' }}       responsive:         {{__SELF__.property('responsive') | raw}},       
+					{{ __SELF__.property('rows') == blank ? '//' : '' }}             rows:               Number( {{ __SELF__.property('rows') }} ),
+					{{ __SELF__.property('slide') == blank ? '//' : '' }}            slide:              String("{{__SELF__.property('slide')}}"),
+					{{ __SELF__.property('slidesPerRow') == blank ? '//' : '' }}     slidesPerRow:       Number( {{ __SELF__.property('slidesPerRow') }} ),
+					{{ __SELF__.property('slidesToShow') == blank ? '//' : '' }}     slidesToShow:       Number( {{ __SELF__.property('slidesToShow') }} ),
+					{{ __SELF__.property('slidesToScroll') == blank ? '//' : '' }}   slidesToScroll:     Number( {{ __SELF__.property('slidesToScroll') }} ),
+					{{ __SELF__.property('speed') == blank ? '//' : '' }}            speed:              Number( {{ __SELF__.property('speed') }} ),
+					{{ __SELF__.property('swipe') == 0 ? '//' : '' }}            swipe:              Boolean( {{ __SELF__.property('swipe') }} ) === true,
+					{{ __SELF__.property('swipeToSlide') == 0 ? '//' : '' }}     swipeToSlide:       Boolean( {{ __SELF__.property('swipeToSlide') }} ) === true,
+					{{ __SELF__.property('touchMove') == 0 ? '//' : '' }}        touchMove:          Boolean( {{ __SELF__.property('touchMove') }} ) === true,
+					{{ __SELF__.property('touchThreshold') == blank ? '//' : '' }}   touchThreshold:     Number( {{ __SELF__.property('touchThreshold') }} ),
+					{{ __SELF__.property('useCSS') == 0 ? '//' : '' }}           useCSS:             Boolean( {{ __SELF__.property('useCSS') }} ) === true,
+					{{ __SELF__.property('useTransform') == 0 ? '//' : '' }}     useTransform:       Boolean( {{ __SELF__.property('useTransform') }} ) === true,
+					{{ __SELF__.property('variableWidth') == 0 ? '//' : '' }}    variableWidth:      Boolean( {{ __SELF__.property('variableWidth') }} ) === true,
+					{{ __SELF__.property('vertical') == 0 ? '//' : '' }}         vertical:           Boolean( {{ __SELF__.property('vertical') }} ) === true,
+					{{ __SELF__.property('verticalSwiping') == 0 ? '//' : '' }}  verticalSwiping:    Boolean( {{ __SELF__.property('verticalSwiping') }} ) === true,
+					{{ __SELF__.property('rtl') == blank ? '//' : '' }}              rtl:                Boolean( {{ __SELF__.property('rtl') }} ) === true,
+					{{ __SELF__.property('waitForAnimate') == 0 ? '//' : '' }}   waitForAnimate:     Boolean( {{ __SELF__.property('waitForAnimate') }} ) === true,
+					{{ __SELF__.property('zIndex') == blank ? '//' : '' }}           zIndex:             Number( {{ __SELF__.property('zIndex') }}),
+					// custom slideshow plugin settings
+					{{ __SELF__.property('nextSlideOnEnd') == blank ? '//' : '' }}   nextSlideOnEnd:     Boolean( {{__SELF__.property('nextSlideOnEnd')}} ),
+					{{ __SELF__.property('autoplayOnShow') == blank ? '//' : '' }}   autoplayOnShow:     Boolean( {{__SELF__.property('autoplayOnShow')}} ),    
+				};
+
+				/**
+				*  Resume Slideshow after stop
+				*/
+				slideshow.resume_slideshow = function () {
+					var currentSlideType = $(".slick-current").data("slide-type");
+					// console.log('resume_slideshow called: ', currentSlideType);
+					slideshow.handleSlideType( currentSlideType );
+				}
+
+
+				/**
+				*  Stop Slideshow
+				*  ( stop video, remove event handler, stop slick )
+				*/
+				slideshow.stop_slideshow = function () {
+					var currentSlideType = $(".slick-current").data("slide-type");
+					slideshow.$slider.slick('slickPause');
+					if(currentSlideType === 'video'){
+						var $theVideo = $(".slick-current video");
+							$theVideo.off('ended', slideshow.onVideoEnd);
+							$theVideo[0].pause();
+							$theVideo[0].currentTime = 0;
+					}
+				}
+
+
+				/**
+				*  Handle Slide Type
+				*  ( do something depending on the current slide type )
+				*/
+				slideshow.handleSlideType = function (currentSlideType) {
+					switch( currentSlideType )
+					{
+						case 'video': {
+							slideshow.startVideoPlayback();
+						};break;
+
+						case 'image': {
+							// console.log('afterChange/ case: image');
+							slideshow.$slider.slick('slickSetOption', 'autoplay', true,true);
+						};break;
+					}
+				}
+
+
+				/**
+				*  Start Video Playback
+				*  ( start video and add event handler see:  onVideoEnd )
+				*/
+				slideshow.startVideoPlayback = function () {
+					// console.log("startVideoPlayback called");
+					var $theVideo = $(".slick-current video");
+						$theVideo[0].play();
+						$theVideo.on('ended', slideshow.onVideoEnd );
+					slideshow.$slider.slick('slickPause'); // pause slideshow until video ends
+				}
+
+
+				/**
+				*  Switch to next slide after video ends, and rewinds it.
+				*	( eventhandler function which gets called after video 'ended' )
+				*/
+				slideshow.onVideoEnd = function () {
+					// console.log("onVideoEnd called");
+					var $theVideo = $(".slick-current video");
+					slideshow.$slider.slick("slickNext");
+						$theVideo.off('ended',  slideshow.onVideoEnd);
+						$theVideo[0].pause();
+						$theVideo[0].currentTime = 0;
+				}
+
+
+				/**
+				* Event afterChange
+				*/
+				slideshow.$slider.on('afterChange', function ( event, slick ) {
+					// TODO use slick param oder this to make shure you select the right slideshow
+					var currentSlideType = $(".slick-current").data("slide-type");
+					slideshow.handleSlideType( currentSlideType );
+				});
+
+				// Global Events for all instances...
+				$(document).on('jumplink_slideshow_stop', slideshow.stop_slideshow );
+
+				// ...just for the current Instance
+				slideshow.$slider.on('jumplink_slideshow_stop', slideshow.stop_slideshow );
+				slideshow.$slider.on('jumplink_resume_slideshow', slideshow.resume_slideshow );
+
+				console.log('Home slideshow.settings', slideshow.settings);
+				// main initialisation
+				slideshow.$slider.slick( slideshow.settings );
+
+							
+						//slideshow.$slider.slick('setPosition');
+				// slideshow.resume_slideshow();
+				// return slideshow object to make properties and methods public
+				return slideshow;
+
+			}
+			{#{% if __SELF__.property('initAuto') %}
+				var currentSlideshow = {{ str_camel(__SELF__.alias) }}Init();
+			{% endif %}#}
+		</script> 
+
+
+{% endif %}

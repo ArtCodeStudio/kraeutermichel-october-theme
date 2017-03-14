@@ -1,0 +1,108 @@
+[viewBag]
+snippetCode = "slideshow"
+snippetName = "Slideshow"
+
+[slideshow slideshowHomeHTML]
+slideshow = 2
+initAuto = 0
+includeHTML = 1
+includeJavaScript = 0
+injectSlickAssets = 0
+injectSlickTheme = 0
+injectJLSlideshowCSS = 0
+injectJQuery = 0
+aspectRatio = "ratio-16-9"
+showCaptions = 1
+captionPosition = "middle center"
+autoplayOnShow = 0
+nextSlideOnEnd = 0
+accessibility = 1
+adaptiveHeight = 0
+autoplay = 0
+arrows = 1
+centerMode = 0
+centerPadding = "0px"
+dots = 0
+draggable = 1
+fade = 0
+focusOnSelect = 0
+infinite = 1
+mobileFirst = 0
+pauseOnFocus = 1
+pauseOnHover = 1
+pauseOnDotsHover = 0
+respondTo = "window"
+slidesToShow = 1
+swipe = 1
+swipeToSlide = 0
+touchMove = 1
+useCSS = 1
+useTransform = 1
+variableWidth = 0
+vertical = 0
+verticalSwiping = 0
+rtl = 0
+waitForAnimate = 1
+useResize = 0
+thumbWidth = 0
+thumbHeight = 0
+thumbMode = "auto"
+thumbQuality = 95
+thumbFiletype = "auto"
+
+[slideshow slideshowHomeJavaScipt]
+slideshow = 2
+initAuto = 1
+includeHTML = 0
+includeJavaScript = 1
+injectSlickAssets = 0
+injectSlickTheme = 0
+injectJLSlideshowCSS = 0
+injectJQuery = 0
+aspectRatio = "ratio-16-9"
+showCaptions = 1
+captionPosition = "middle center"
+adaptiveHeight = 0
+centerMode = 0
+centerPadding = "0px"
+autoplayOnShow = 0
+nextSlideOnEnd = 0
+autoplay = 0
+autoplaySpeed = 99999999999
+fade = 0
+infinite = 1
+slidesToShow = 1
+rtl = 0
+waitForAnimate = 1
+accessibility = 0
+arrows = 1
+dots = 0
+draggable = 1
+focusOnSelect = 0
+pauseOnFocus = 1
+pauseOnHover = 1
+pauseOnDotsHover = 0
+swipe = 0
+swipeToSlide = 0
+touchMove = 0
+verticalSwiping = 0
+useResize = 0
+thumbWidth = 0
+thumbHeight = 0
+thumbMode = "auto"
+thumbQuality = 95
+thumbFiletype = "auto"
+mobileFirst = 0
+respondTo = "window"
+useCSS = 1
+useTransform = 1
+variableWidth = 0
+vertical = 0
+==
+{% component 'slideshowHomeHTML' %}
+
+{% component 'slideshowHomeJavaScipt' %}
+
+<script>
+ slideshowHomeJavaSciptInit('#slideshowHomeHTML');
+</script>

@@ -1,0 +1,32 @@
+.red-transparent {
+    background-color: transparentize($red, 0.3);
+}
+
+.yellow-transparent {
+    background-color: transparentize($yellow, 0.3);
+}
+
+.green-transparent {
+    background-color: transparentize($green, 0.3);
+}
+
+.black-transparent {
+    background-color: transparentize($gray-light, 0.3);
+}
+
+
+.red {
+    color: $red;
+}
+
+.yellow {
+     color: $yellow;
+}
+
+.green {
+     color: $green;
+}
+
+.gray-light {
+     color: $gray-light;
+}

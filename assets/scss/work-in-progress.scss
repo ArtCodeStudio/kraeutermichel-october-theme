@@ -1,5 +1,5 @@
 #WorkInProgress {
-    background-image: url(https://xn--krutermichel-hcb.de/themes/kraeutermichel/assets/images/bg.jpg) ;
+    background-image: url(https://xn--krutermichel-hcb.de/themes/kraeutermichel-october-theme/assets/images/bg.jpg) ;
     background-position: center center;
     background-repeat:  no-repeat;
     background-attachment: fixed;
@@ -9,19 +9,31 @@
     #layout-content {
        // background-color: rgba(175,203,55,0.3);
     }
-    #teaser-content-container{
+    #teaser-content-container {
         margin-top: 11rem;
         padding-left: 7.3rem;
-        height: 780px;
+
+        &.mobile{
+             margin-top: 5rem;
+             padding-left: 5.3rem;
+             &.landscape {
+                 margin-top: 2rem;
+             }
+        }
+        
+        // height: 780px;
         p{
             color:white;
             text-shadow: 1px 1px 1px rgba(60, 60, 60, 1);
         }
-        #main {
+        .main {
             font-size: 2.2rem;
             line-height: 1.2;
             b{
                 font-family: LibreFranklinSemiBold;
+            }
+            &.mobile {
+                font-size: 1.2rem;
             }
         }
         #sub{
@@ -61,17 +73,31 @@
     }
 
     height:100%;
+    //height: 444px;
     footer{
         background-color: $green;
-        position: fixed;
-        bottom: 0;
-        width:102%;
+        width:120%;
         height: 150px;;
         padding:1.8rem;
+        &.fixed{
+            position: fixed;
+            bottom: 0;
+        }
+        &.mobile{
+            padding:1rem;
+            height: 196px;
+        }
 
-        #teaser-imprint-logo-container {
+        #teaser-imprint-logo-container{
             img{
                 width: 120px;
+            }
+            &.mobile{
+                padding-left: 2.2rem;
+                padding-top: 2.76rem;
+                img {
+                 width: 87px;
+                }
             }
         }
 

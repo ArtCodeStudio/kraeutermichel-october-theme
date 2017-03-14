@@ -2,16 +2,79 @@
     
     min-height: 880px;
     margin-top: 3rem;
+
+    .nav-wrapper{
+        // padding-left: 3.2rem;
+    }
+
+
     #sub-nav {
-        a{
+        a {
             padding: 0 1rem 0 1rem;
             color: $black;
+            &.krauter {
+                color: $green;
+                font-family: $font-family-sans-serif-bold;
+            }
+            &.verwendung {
+                color: $red;
+                font-family: $font-family-sans-serif-bold;
+            }
+            &.grabpflege {
+                color: $gray-light;
+                font-family: $font-family-sans-serif-bold;
+            }
+        }
+
+    }
+    #leistung-icon {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        .icon {
+            width:7rem;
+            height: 8rem;
         }
     }
 
-    .icon{
-        width:5rem;
-        height: 8rem;
-    }
+}
 
+#leistungen-krauter {
+    #leistung-icon {
+        padding-right: 3rem;
+    }
+    h1{
+        color: $green;
+    }
+}
+
+
+#leistungen-verwendung {
+    #leistung-icon {
+        padding-right: 3rem;
+    }
+    h1{
+        color: $red;
+    }
+    .teaser-wrapper{
+        //background-image: url(https://xn--krutermichel-hcb.de/themes/kraeutermichel-october-theme/assets/images/icons/icon-01.svg) ;
+        background-position: center center;
+        background-repeat:  no-repeat;
+        background-attachment: fixed;
+        background-size:  cover;
+        background-color: rgba(255, 0, 0, 0.03);
+        .bold {
+             font-family: $font-family-sans-serif-bold;
+        }
+
+    }
+}
+
+
+#leistungen-grabpflege {
+    #leistung-icon {
+        padding-right: 1rem;
+    }
+    h1{
+        color: $gray-light;
+    }
 }

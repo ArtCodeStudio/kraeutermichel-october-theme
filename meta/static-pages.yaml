@@ -1,11 +1,7 @@
 static-pages:
-    test: {  }
     index: {  }
-    leistungen:
-        leistungen-krauter: {  }
-        leistungen-verwendung: {  }
-        leistungen-grabpflege: {  }
+    leistungen-verwendung: {  }
+    leistungen: {  }
+    leistungen-grabpflege: {  }
     events: {  }
-    krauter-von-bis-z: {  }
-    blog: {  }
     kontakt: {  }
