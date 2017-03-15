@@ -22,22 +22,25 @@ description = "Home layout"
         <link href="{{ [style,]|theme }}" rel="stylesheet">
         {% partial "_head_scripts" %} 
     </head>
+
     <body id="{{ str_studly(this.page.title) }}" data-spy="scroll">
         
-        {# Content #}
-        <section id="layout-content" style="min-height:943px">
-            {% partial 'navigation/navigation' class="" %}
-            {% page %}
-        </section>
+        {% partial 'navigation/navigation' class="" %}
+        <div id="barba-wrapper">
+            <div
+                {% partial 'barba-container-attributes' %}
+            >
+                {# Content #}
+                <section id="layout-content" style="min-height:943px">
+                    {% page %}
+                </section>
+            </div>
+        </div>
 
         {% partial 'footer' %}
         
 
-        {# Scripts #}
 
-        {# 
-            {% partial "_foot_scripts" %}  
-        #}
 
         {% framework %}
         
@@ -52,7 +55,8 @@ description = "Home layout"
             <script type="text/javascript" src="{{ 'assets/javascript/partials/navigation.js' |theme }}"></script>
         {% endput %}
 
-   
-
+         
+        {% partial "_foot_scripts" %}  
+    
     </body>
 </html>

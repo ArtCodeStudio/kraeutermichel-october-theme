@@ -57,11 +57,17 @@ function onMailSent() {
     </head>
     <body id="{{ str_studly(this.page.title) }}" data-spy="scroll">
         
-        {# Content #}
-        <section id="layout-content">
-            {% partial 'navigation/navigation' class="bg-white-transparent" %}
-            {% page %}
-        </section>
+        {% partial 'navigation/navigation' class="bg-white-transparent" %}
+        <div id="barba-wrapper">
+            <div
+                {% partial 'barba-container-attributes' %}
+            >
+                {# Content #}
+                <section id="layout-content">
+                    {% page %}
+                </section>
+            </div>
+        </div>
         
         {% partial 'footer' %}
         {# Scripts #}
@@ -78,7 +84,8 @@ function onMailSent() {
         </script>
         {% scripts %}
 
-   
+
+        {% partial "_foot_scripts" %}  
 
     </body>
 </html>
