@@ -26,6 +26,15 @@ description = "Home layout"
     <body id="{{ str_studly(this.page.title) }}" data-spy="scroll">
         
         {% partial 'navigation/navigation' class="" %}
+
+        <div class="container text-center mt-5 pt-2 leistungen-subnav">
+            <div class="row">            
+                <div class="col-xs-12 text-center nav-wrapper">
+                    {% partial 'leistungen/_sub_nav.htm' active="krauter" %}
+                </div>
+            </div>
+        </div>
+
         <div id="barba-wrapper">
             <div
                 {% partial 'barba-container-attributes' %}

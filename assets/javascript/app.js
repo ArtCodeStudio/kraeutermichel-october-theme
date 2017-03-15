@@ -3,6 +3,7 @@ var cache = {
 	$navbarMain: $('#navbar-main'),
 	$sidebar: $("#sidebar"),
 	homeInitialized: false,
+	$body: $('body'),
 };
 
 var currentNamespace = null;
@@ -126,9 +127,7 @@ var initLeistungenKrauter = function (dataset) {
 }
 
 var initLeistungenVerwendung = function (dataset) { 
-
 	initSlideshow("#slideshowLeistungVerwendungHTML");
-
 }
 
 var initLeistungenGrabpflege = function (dataset) { 
@@ -140,7 +139,15 @@ var initEvents = function (dataset) {
 }
 
 var initKräutervonabisz = function (dataset) { 
-
+	var krauterListInit = function (selector) {
+		$('.grid').masonry({
+			itemSelector: '.grid-item',
+			columnWidth: 300,
+			isFitWidth: true,
+			gutter:30
+		});
+	}	
+	krauterListInit();
 }
 
 var initKrautpage = function (dataset) { 
@@ -168,9 +175,9 @@ var initKontakt = function (dataset) {
  */
 var initTemplate = {
 	'home': initHome,
-	'leistungen/kräuter': initLeistungenKrauter,
-	'leistungen/verwendung': initLeistungenVerwendung,
-	'leistungen/grabpflege': initLeistungenGrabpflege,
+	'leistungenkrauter': initLeistungenKrauter,
+	'leistungenverwendung': initLeistungenVerwendung,
+	'leistungengrabpflege': initLeistungenGrabpflege,
 	'events': initEvents,
 	'kräutervonabisz': initKräutervonabisz,
 	'krautpage': initKrautpage,
@@ -193,7 +200,18 @@ var initTemplates = function () {
 
 	currentNamespace = currentStatus.namespace;
 
+
 	console.log("currentStatus", currentStatus.namespace);
+
+	
+	if ( currentStatus.namespace.substring(0, 10) === 'leistungen' ) {
+		var temp = currentStatus.namespace.replace("/", "-");
+		cache.$body.attr( 'id', temp );
+
+	}else{
+		cache.$body.attr( 'id', currentNamespace );
+	}
+	
 	if(typeof(initTemplate[currentStatus.namespace]) === 'function' ) {
 	  initTemplate[currentStatus.namespace](container.dataset);
 	} else {

@@ -1,35 +1,107 @@
-#leistungen-krauter, #leistungen-verwendung, #leistungen-grabpflege {
+
+.leistungen-subnav{ 
+    opacity:0;
+    // display:none
+    display:block;
+    position: absolute;
+}
+
+
+#leistungenkrauter, #leistungenverwendung, #leistungengrabpflege {
+
+    .leistungen-subnav{
+        opacity:1;
+       // display:block;
+        transition: opacity 1s ease;
+       
+        width: 100%;
+        #sub-nav {
+            a {
+                padding: 0 1rem 0 1rem;
+                color: $black;
+                &.krauter {
+                    color: $green;
+                    font-family: $font-family-sans-serif-bold;
+                }
+                &.verwendung {
+                    color: $red;
+                    font-family: $font-family-sans-serif-bold;
+                }
+                &.grabpflege {
+                    color: $gray-light;
+                    font-family: $font-family-sans-serif-bold;
+                }
+            }
+
+        }
+
+    }
+}
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+/**
+ * SECTION COLORS
+ */
+#leistungenkrauter {
+    
+    .logo-color {
+        fill: $green;
+    }
+    #footer-background {
+        background-color:$green;
+    }
+    #leistungen-krauter-wrapper {
+        .current-section-color{
+            color: $green;
+        }
+    }
+} 
+#leistungenverwendung {
+    
+    .logo-color {
+        fill:$red;
+    }
+    #footer-background {
+        background-color:$red;
+    }
+    #leistungen-verwendung-wrapper {
+        .current-section-color{
+            color: $red;
+        }
+    }
+} 
+#leistungengrabpflege {
+    
+    .logo-color {
+        fill:$gray-light;
+    }
+    #footer-background {
+        background-color:$gray-light;
+    }
+    #leistungen-grabpflege-wrapper {
+        .current-section-color{
+            color: $gray-light;
+        }
+    }
+}
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+#leistungen-krauter-wrapper, #leistungen-verwendung-wrapper, #leistungen-grabpflege-wrapper {
     
     min-height: 880px;
-    margin-top: 3rem;
+   // margin-top: 3rem;
 
     .nav-wrapper{
         // padding-left: 3.2rem;
     }
 
-
-    #sub-nav {
-        a {
-            padding: 0 1rem 0 1rem;
-            color: $black;
-            &.krauter {
-                color: $green;
-                font-family: $font-family-sans-serif-bold;
-            }
-            &.verwendung {
-                color: $red;
-                font-family: $font-family-sans-serif-bold;
-            }
-            &.grabpflege {
-                color: $gray-light;
-                font-family: $font-family-sans-serif-bold;
-            }
-        }
-
-    }
+    padding-top: 9rem;
+    
     #leistung-icon {
-        margin-top: 3rem;
-        margin-bottom: 3rem;
+        // margin-top: 3rem;
+        // margin-bottom: 3rem;
         .icon {
             width:7rem;
             height: 8rem;
@@ -45,6 +117,7 @@
     h1{
         color: $green;
     }
+    
 }
 
 

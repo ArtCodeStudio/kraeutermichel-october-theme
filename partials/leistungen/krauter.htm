@@ -1,6 +1,6 @@
 [viewBag]
 snippetCode = "leistungen-krauter"
-snippetName = "Leistungen / Kräuter"
+snippetName = "Leistungen-Krauter"
 
 [slideshow slideshowLeistungKrauterHTML]
 slideshow = 3
@@ -13,52 +13,46 @@ injectJLSlideshowCSS = 0
 injectJQuery = 0
 showCaptions = 1
 captionPosition = "middle center"
-adaptiveHeight = 0
-centerMode = 0
-centerPadding = "0px"
 autoplayOnShow = 1
 nextSlideOnEnd = 1
-autoplay = 0
-fade = 0
-infinite = 1
-slidesToShow = 1
-rtl = 0
-waitForAnimate = 1
 accessibility = 1
+adaptiveHeight = 0
+autoplay = 0
 arrows = 1
+centerMode = 0
+centerPadding = "0px"
 dots = 0
 draggable = 1
+fade = 0
 focusOnSelect = 0
+infinite = 1
+mobileFirst = 0
 pauseOnFocus = 1
 pauseOnHover = 1
 pauseOnDotsHover = 0
+respondTo = "window"
+slidesToShow = 1
 swipe = 1
 swipeToSlide = 0
 touchMove = 1
+useCSS = 1
+useTransform = 1
+variableWidth = 0
+vertical = 0
 verticalSwiping = 0
+rtl = 0
+waitForAnimate = 1
 useResize = 0
 thumbWidth = 0
 thumbHeight = 0
 thumbMode = "auto"
 thumbQuality = 95
 thumbFiletype = "jpg"
-mobileFirst = 0
-respondTo = "window"
-useCSS = 1
-useTransform = 1
-variableWidth = 0
-vertical = 0
 ==
-<div id="leistungen-krauter" class="pb-5">
+<div id="leistungen-krauter-wrapper" class="pb-5">
 
-    <div class="container text-center pt-2">
+    <div class="container text-center pt-2 mt-9">
 
-        {#<div class="row">            
-            <div class="col-xs-12 text-center nav-wrapper">
-                {% partial 'leistungen/_sub_nav.htm' active="krauter" %}
-            </div>
-        </div>#}
-    
         <div class="row">
             <div class="col-xs-12 text-center" id="leistung-icon">
                 <img class="my-1 icon" src="{{ 'assets/images/icons/icon-01.svg' |theme }}" alt="">
@@ -67,7 +61,7 @@ vertical = 0
     
         <div class="row justify-content-center">
             
-            <h1 class="mt-1 mb-3">Kräuter in aller Munde</h1>
+            <h1 class="mt-1 mb-3 current-section-color">Kräuter in aller Munde</h1>
             
             <div class="col-xs-8 text-left">
                 {% content 'leistungen/krauter.htm' %}
