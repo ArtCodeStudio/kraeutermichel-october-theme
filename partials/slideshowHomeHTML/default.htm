@@ -6,7 +6,7 @@ slide.name | raw
 {% if __SELF__.slideshow.slides %} 
 <!--homepage slideshow -->
 	{## # HTML #} 
-	{% if __SELF__.property('includeHTML') %} 
+	{#{% if __SELF__.property('includeHTML') %} #}
 		{% set autoplayIndex = -1 %}
 
 		<div id='{{ str_camel(__SELF__.alias) }}' class="slick-carousel">
@@ -169,6 +169,6 @@ slide.name | raw
 			{% endfor %}
 		</div>
 
-	{% endif %} 
+	{#{% endif %} #}
 
 {% endif %}

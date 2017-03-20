@@ -4,12 +4,12 @@ items:
         title: Leistungen
         nesting: '0'
         type: static-page
-        code: krauter
+        code: leistungen
         reference: leistungen
         replace: '0'
         viewBag:
             isHidden: '0'
-            cssClass: krauter
+            cssClass: leistungen
             isExternal: '0'
     -
         title: Events
@@ -29,13 +29,13 @@ items:
         nesting: ''
         type: cms-page
         url: ''
-        code: krauter
+        code: krauterlexicon
         reference: krauter-von-bis-z
         cmsPage: ''
         replace: ''
         viewBag:
             isHidden: '0'
-            cssClass: krauter
+            cssClass: krauterlexicon
             isExternal: '0'
     -
         title: Blog

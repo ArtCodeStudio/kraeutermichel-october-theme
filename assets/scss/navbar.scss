@@ -1,6 +1,38 @@
 $navbar-brand-height: 37px;
 $navbar-brand-width: 150px;
 
+#home {
+    .nav-link{
+        color:$white;
+    }
+}
+
+#leistungenkrauter{
+    .nav-link {
+        &.active {
+            color: $green;
+        }
+    }
+}
+
+#leistungenverwendung {
+    .nav-link {
+        &.active {
+             color: $red;
+        }
+    }
+}
+
+#leistungengrabpflege {
+    .nav-link {
+        &.active {
+            color: $gray-light;
+        }
+    }
+}
+    
+
+
 
 .navbar {
     
@@ -9,7 +41,7 @@ $navbar-brand-width: 150px;
     opacity: 1;
     transition: all 500ms ease;
  
-    .navbar-nav{
+    .navbar-nav {
         padding-right: 0.8rem;
     }
     

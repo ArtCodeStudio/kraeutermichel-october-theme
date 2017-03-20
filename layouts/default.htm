@@ -56,7 +56,7 @@ function onMailSent() {
         {% partial "_head_scripts" %} 
         <script>
 
-        //    var red = {{ this.theme.bs4_white }}
+           // var red = {{ this.theme.bs4_white }}
 
         </script>
     </head>
@@ -67,7 +67,7 @@ function onMailSent() {
         <div class="container text-center mt-5 pt-2 leistungen-subnav">
             <div class="row">            
                 <div class="col-xs-12 text-center nav-wrapper">
-                    {% partial 'leistungen/_sub_nav.htm' active="krauter" %}
+                    {% partial 'leistungen/_sub_nav.htm' active =  str_snake(this.page.title , '') | lowercase %}
                 </div>
             </div>
         </div>

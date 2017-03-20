@@ -1,17 +1,24 @@
 var cache = {
 	lastElementClicked: null,
+	
 	$navbarMain: $('#navbar-main'),
 	$sidebar: $("#sidebar"),
-	homeInitialized: false,
 	$body: $('body'),
+	
+	homeInitialized: false,
+
+	leistungenKrauterInitialized: false,
+	leistungenVerwendungInitialized: false,
+	leistungenGrabpflegeInitialized: false,
+	
+	eventsInitialized:false,
+	krauterLexiconInitialized:false,
+	blogInitialized:false,
+	kontaktInitialized:false,
+
 };
 
 var currentNamespace = null;
-
-
-
-
-
 
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 var initSidebar = function() {
@@ -37,7 +44,6 @@ var initSidebar = function() {
 }
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
-
 /**
  * SLIDESHOW / Leistungen
  */
@@ -48,8 +54,8 @@ var initSlideshow = function (selector) {
 		$slideshow.slick({
 			slidesToShow: 1,
 			slidesToScroll: 1,
-			autoplay: false,
-			autoplaySpeed: 2000,
+			autoplay: true,
+			autoplaySpeed: 5000,
 			centerMode: true,
 			centerPadding: '0',
 			infinite: true,
@@ -58,7 +64,49 @@ var initSlideshow = function (selector) {
 		});
 	}
 }
+var initSlideshowHome = function (selector) {
+	var $slideshow = $(selector);
+	if( !$slideshow.hasClass('slick-initialized') ) { // only init if slick is not already initialized
+		$slideshow.slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 5000,
+			centerMode: true,
+			centerPadding: '0',
+			infinite: true,
+			dots: false,
+			arrows: true,
+		});
+	}
+}
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+var initLeistungenSubnav = function () {
+
+	var currentActiveSection = $('body').attr('id');
+
+	var $elem = $('.leistungen-subnav nav a');
+	var $mainNav = $('.navbar-nav li a');
+
+		//console.log('subnav', $('#sub-nav'), currentActiveSection);
+	
+	if ( !cache.leistungInitialized ) {
+		$(document).on('click', '.leistungen-subnav nav a' , function(e) {
+			var $target = $(e.target);
+
+			//$mainNav.removeClass();
+			$('.navbar-nav .leiustungen').attr('id', $target.data('section') );
+			//console.log('find',  );
+			
+
+			$elem.removeClass();
+			$target.addClass( $target.data('section') );
+		});
+		cache.leistungInitialized= true;
+	}
+
+}
 
 /**
  * INIT TEMPLATE FUNCTIONS
@@ -66,8 +114,9 @@ var initSlideshow = function (selector) {
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 var initHome = function (dataset) {
 	console.log('init home');
-	slideshowHomeJavaSciptInit('#slideshowHomeHTML');
+	initSlideshowHome("#slideshowHomeHTML");
 	if(! cache.homeInitialized ) { // just add ONE event listener
+		//slideshowHomeJavaSciptInit('#slideshowHomeHTML');
 		$(window).on('scrollstop', function () {
 			console.log('-----onscrollstop');
 			// changeNavbar(dataset);
@@ -77,12 +126,9 @@ var initHome = function (dataset) {
 };
 
 var initLeistungenKrauter = function (dataset) {
- 
+	initLeistungenSubnav();
 	initSlideshow("#slideshowLeistungKrauterHTML");
 
-	/**
-	* INIT Latest Krauter Carousel
-	*/
 	var initCarousel = function () {
 		var $latestKrauterCarousel = $(".latest-krauter-carousel");
 		// only init if slick is not already initialized
@@ -123,14 +169,17 @@ var initLeistungenKrauter = function (dataset) {
 		}
 	};
 	initCarousel();
-
+	
+	
 }
 
 var initLeistungenVerwendung = function (dataset) { 
+	initLeistungenSubnav();
 	initSlideshow("#slideshowLeistungVerwendungHTML");
 }
 
 var initLeistungenGrabpflege = function (dataset) { 
+	initLeistungenSubnav();
 	initSlideshow("#slideshowLeistungGrabpflegeHTML");
 }
 
@@ -200,10 +249,8 @@ var initTemplates = function () {
 
 	currentNamespace = currentStatus.namespace;
 
-
 	console.log("currentStatus", currentStatus.namespace);
 
-	
 	if ( currentStatus.namespace.substring(0, 10) === 'leistungen' ) {
 		var temp = currentStatus.namespace.replace("/", "-");
 		cache.$body.attr( 'id', temp );

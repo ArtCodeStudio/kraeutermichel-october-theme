@@ -1,14 +1,18 @@
 <nav id="sub-nav">
 
-    <a href="/leistungen-krauter" {% if active == 'krauter' %} class="krauter" {% endif %} >
+    {% if not (active == 'leistungenkrauter' or active == 'leistungenverwendung' or active == 'leistungengrabpflege' ) %}
+        {% set active ='leistungenkrauter' %}
+    {% endif %}
+    
+    <a href="/leistungen-krauter" data-section='krauter' {% if active == 'leistungenkrauter' %} class="krauter" {% endif %} >
         Kräuter
     </a>
 
-    <a href="/leistungen-verwendung" {% if active == 'verwendung' %} class="verwendung" {% endif %}>
+    <a href="/leistungen-verwendung" data-section='verwendung' {% if active == 'leistungenverwendung' %} class="verwendung" {% endif %}>
         Verwendung
     </a>
 
-    <a href="/leistungen-grabpflege" {% if active == 'grabpflege' %} class="grabpflege" {% endif %}>
+    <a href="/leistungen-grabpflege"  data-section='grabpflege' {% if active == 'leistungengrabpflege' %} class="grabpflege" {% endif %}>
         Grabpflege
     </a>
 

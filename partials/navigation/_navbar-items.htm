@@ -1,10 +1,21 @@
 [viewBag]
 ==
+
+{% set active =  str_snake(this.page.title , '') | lowercase %}
+
 <ul class="{{ class }}">
     {% for item in items %}
         <li class="{{ itemClass }} {{ item.viewBag.cssClass }} {{ item.items ? 'dropdown' : '' }}">
-            <a class="nav-link" {% if item.items %}data-toggle="dropdown"{% endif %} href="{{ item.url }}">
-                <!--#{{ item.viewBag.cssClass }}-->
+            
+            {% if active == 'leistungenkrauter' or active == 'leistungenverwendung' or active == 'leistungengrabpflege' %}
+                {% set active = 'active' %}
+            {% else %}
+                {% set active = '' %}
+            {% endif %}
+
+            <a class="nav-link {{active}}" {% if item.items %}data-toggle="dropdown"{% endif %} href="{{ item.url }}">
+                {#{{ item.viewBag.cssClass }}#}
+
                 {{ item.title }}
                 {% if item.items %}
                     <span class="caret"></span>
