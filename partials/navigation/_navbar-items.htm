@@ -2,28 +2,33 @@
 ==
 
 {% set active =  str_snake(this.page.title , '') | lowercase %}
-
+{#{{active}}#}
 <ul class="{{ class }}">
     {% for item in items %}
         <li class="{{ itemClass }} {{ item.viewBag.cssClass }} {{ item.items ? 'dropdown' : '' }}">
             
-            {% if active == 'leistungenkrauter' or active == 'leistungenverwendung' or active == 'leistungengrabpflege' %}
-                {% set active = 'active' %}
+            {% if active == 'leistungenkrauter' or 
+                    active == 'leistungenverwendung' or
+                    active == 'leistungengrabpflege'  or 
+                    active == 'events' or
+                    active == 'kräutervonabisz' 
+            %}
+                {% set active_class = '_active' %}
+            {% endif %}
+
+            {% if active == item.viewBag.cssClass %}
+                {% set active_class = '_active' %}
             {% else %}
-                {% set active = '' %}
+                {% set active_class = '' %}
             {% endif %}
 
-            <a class="nav-link {{active}}" {% if item.items %}data-toggle="dropdown"{% endif %} href="{{ item.url }}">
-                {#{{ item.viewBag.cssClass }}#}
 
+            <a class="nav-link {{active_class}}" {% if item.items %}data-toggle="dropdown"{% endif %} href="{{ item.url }}">
                 {{ item.title }}
-                {% if item.items %}
-                    <span class="caret"></span>
-                {% endif %}
             </a>
-            {% if item.items %}
+            {#{% if item.items %}
                 {% partial 'menu-items' items=item.items class='dropdown-menu' %}
-            {% endif %}
+            {% endif %}#}
         </li>
     {% endfor %}
 </ul>

@@ -1,15 +1,44 @@
 
-.leistungen-subnav{ 
+.leistungen-subnav { 
     opacity:0;
     // display:none
     display:block;
     position: absolute;
 }
 
+#leistungenkrauter{
+    #sub-nav {
+        a {
+            &._active {
+                 color: $green !important;
+            }
+        }
+    }
+}
+
+#leistungenverwendung {
+    #sub-nav {
+        a {
+            &._active {
+                 color: $red;
+            }
+        }
+    }
+}
+
+#leistungengrabpflege {
+    #sub-nav {
+        a {
+            &._active {
+                color: $gray-light;
+            }
+        }
+    }
+}
 
 #leistungenkrauter, #leistungenverwendung, #leistungengrabpflege {
 
-    .leistungen-subnav{
+    .leistungen-subnav {
         opacity:1;
        // display:block;
         transition: opacity 1s ease;
@@ -18,31 +47,6 @@
         #sub-nav {
             a {
                 padding: 0 1rem 0 1rem;
-                color: $black;
-                //font-family: $font-family-sans-serif-bold;
-                &.krauter {
-                    color: $green;
-                }
-                &.verwendung {
-                    color: $red;
-                  
-                }
-                &.grabpflege {
-                    color: $gray-light;
-                }
-
-                // &.leistungenkrauter {
-                //     color: $green;
-                //     font-family: $font-family-sans-serif-bold;
-                // }
-                // &.leistungenverwendung {
-                //     color: $red;
-                //     font-family: $font-family-sans-serif-bold;
-                // }
-                // &.leistungengrabpflege {
-                //     color: $gray-light;
-                //     font-family: $font-family-sans-serif-bold;
-                // }
             }
 
         }

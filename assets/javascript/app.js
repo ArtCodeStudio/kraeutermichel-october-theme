@@ -84,24 +84,30 @@ var initSlideshowHome = function (selector) {
 
 var initLeistungenSubnav = function () {
 
+	$('.leistungen-subnav nav a').removeClass();
+	
 	var currentActiveSection = $('body').attr('id');
+	console.log('currentActiveSection', '#_'+currentActiveSection);
+
+	$('#_'+currentActiveSection).addClass('_active');
 
 	var $elem = $('.leistungen-subnav nav a');
 	var $mainNav = $('.navbar-nav li a');
 
-		//console.log('subnav', $('#sub-nav'), currentActiveSection);
-	
+	// main navigation active,  TODO : move in its own function
+	if ( currentActiveSection === 'leistungenkrauter' || 
+		 currentActiveSection === 'leistungenverwendung' ||
+		 currentActiveSection === 'leistungengrabpflege'  ) 
+	{
+		$('.navbar-nav .leistungen a').addClass( '_active' ); 
+	}
+
 	if ( !cache.leistungInitialized ) {
 		$(document).on('click', '.leistungen-subnav nav a' , function(e) {
-			var $target = $(e.target);
-
-			//$mainNav.removeClass();
-			$('.navbar-nav .leiustungen').attr('id', $target.data('section') );
-			//console.log('find',  );
-			
-
-			$elem.removeClass();
-			$target.addClass( $target.data('section') );
+			//var $target = $(e.target);
+			//$elem.removeClass();
+			// $target.addClass( $target.data('section') );
+			//$target.addClass('_active');
 		});
 		cache.leistungInitialized= true;
 	}
@@ -115,17 +121,19 @@ var initLeistungenSubnav = function () {
 var initHome = function (dataset) {
 	console.log('init home');
 	initSlideshowHome("#slideshowHomeHTML");
-	if(! cache.homeInitialized ) { // just add ONE event listener
-		//slideshowHomeJavaSciptInit('#slideshowHomeHTML');
-		$(window).on('scrollstop', function () {
-			console.log('-----onscrollstop');
-			// changeNavbar(dataset);
-		});
-		cache.homeInitialized = true;
-	}
+	// if(! cache.homeInitialized ) { // just add ONE event listener
+	// 	//slideshowHomeJavaSciptInit('#slideshowHomeHTML');
+	// 	$(window).on('scrollstop', function () {
+	// 		console.log('-----onscrollstop');
+	// 		// changeNavbar(dataset);
+	// 	});
+	// 	cache.homeInitialized = true;
+	// }
 };
 
+
 var initLeistungenKrauter = function (dataset) {
+	
 	initLeistungenSubnav();
 	initSlideshow("#slideshowLeistungKrauterHTML");
 
@@ -168,26 +176,26 @@ var initLeistungenKrauter = function (dataset) {
 			});
 		}
 	};
-	initCarousel();
-	
-	
+	initCarousel();	
 }
-
 var initLeistungenVerwendung = function (dataset) { 
 	initLeistungenSubnav();
 	initSlideshow("#slideshowLeistungVerwendungHTML");
 }
-
 var initLeistungenGrabpflege = function (dataset) { 
 	initLeistungenSubnav();
 	initSlideshow("#slideshowLeistungGrabpflegeHTML");
 }
 
-var initEvents = function (dataset) { 
 
+var initEvents = function (dataset) { 
+	//$('.navbar-nav .events a').addClass( '_active' );
+	$('#events .nav-link').addClass( '_white' );
 }
 
+
 var initKräutervonabisz = function (dataset) { 
+	$('.navbar-nav .kräutervonabisz a').addClass( '_active' );
 	var krauterListInit = function (selector) {
 		$('.grid').masonry({
 			itemSelector: '.grid-item',
@@ -200,19 +208,19 @@ var initKräutervonabisz = function (dataset) {
 }
 
 var initKrautpage = function (dataset) { 
-
+	$('.navbar-nav .kräutervonabisz a').addClass( '_active' );
 }
 
 var initBlog = function (dataset) { 
-
+	$('.navbar-nav .blog a').addClass( '_active' );
 }
 
 var initBlogPost = function (dataset) { 
-
+	$('.navbar-nav .blog a').addClass( '_active' );
 }
 
 var initKontakt = function (dataset) { 
-
+	$('.navbar-nav .kontakt a').addClass( '_active' );
 }
 
 
@@ -249,8 +257,10 @@ var initTemplates = function () {
 
 	currentNamespace = currentStatus.namespace;
 
-	console.log("currentStatus", currentStatus.namespace);
-
+	//console.log("currentStatus", currentStatus.namespace);
+	$('.navbar-nav a').removeClass( '_active' );
+	//$('#events .nav-link').removeClass( 'color', 'white' );
+	
 	if ( currentStatus.namespace.substring(0, 10) === 'leistungen' ) {
 		var temp = currentStatus.namespace.replace("/", "-");
 		cache.$body.attr( 'id', temp );
@@ -348,11 +358,6 @@ var initBarba = function () {
 
 
 $(document).ready(function(){
-
-
 	initBarba();
-	console.log('app init');
-
-
-
+	// console.log('app init');
 });

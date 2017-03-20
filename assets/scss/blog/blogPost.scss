@@ -1,5 +1,11 @@
+#blogpost {
+    .logo-color {
+        fill: $yellow;
+    }
+}
+
 #blogPost {
-   #blog-post-wrapper{
+     #blog-post-wrapper{
       
         h1 {
             font-family: $font-family-sans-serif-bold;

@@ -53,15 +53,9 @@ description = "Home layout"
         
         {# More theme variables #}
         <script>
-            L.Icon.Default.imagePath = "/themes/{{this.theme.dirname}}/assets/vendor/leaflet/dist/images/";
+            //L.Icon.Default.imagePath = "/themes/{{this.theme.dirname}}/assets/vendor/leaflet/dist/images/";
         </script>
         {% scripts %}
-
-        {# SHOW HIDE NAV BACKGROUND #}
-        {% put scripts %}
-            {#<script type="text/javascript" src="{{ 'assets/javascript/partials/navigation.js' |theme }}"></script>#}
-        {% endput %}
-
          
         {% partial "_foot_scripts" %}  
     

@@ -4,8 +4,10 @@ items:
         title: Leistungen
         nesting: '0'
         type: static-page
+        url: ''
         code: leistungen
         reference: leistungen
+        cmsPage: ''
         replace: '0'
         viewBag:
             isHidden: '0'
@@ -26,16 +28,12 @@ items:
             isExternal: '0'
     -
         title: 'Kräuter von A bis Z'
-        nesting: ''
         type: cms-page
-        url: ''
-        code: krauterlexicon
+        code: kräutervonabisz
         reference: krauter-von-bis-z
-        cmsPage: ''
-        replace: ''
         viewBag:
             isHidden: '0'
-            cssClass: krauterlexicon
+            cssClass: kräutervonabisz
             isExternal: '0'
     -
         title: Blog

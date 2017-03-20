@@ -41,7 +41,7 @@ function onMailSent() {
         <title>{{ this.theme.site_name }} - {{ this.page.title }}</title>
         <meta name="description" content="{{ this.page.meta_description }}">
         <meta name="title" content="{{ this.page.meta_title }}">
-        <meta name="author" content="Pascal Garber">
+        <meta name="author" content="Pascal Garber, Marc Wensauer">
         <meta http-equiv="language" content="deutsch, de">
         <meta name="Keywords" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
@@ -90,12 +90,12 @@ function onMailSent() {
             {% partial "_foot_scripts" %}  
         #}
 
-        {% framework %}
+        {#{% framework %}#}
         
         {# More theme variables #}
-        <script>
-            L.Icon.Default.imagePath = "/themes/{{this.theme.dirname}}/assets/vendor/leaflet/dist/images/";
-        </script>
+        {#<script>
+           L.Icon.Default.imagePath = "/themes/{{this.theme.dirname}}/assets/vendor/leaflet/dist/images/";
+        </script>#}
         {% scripts %}
 
 

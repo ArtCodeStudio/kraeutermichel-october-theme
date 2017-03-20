@@ -5,33 +5,115 @@ $navbar-brand-width: 150px;
     .nav-link{
         color:$white;
     }
+    .navbar{
+         &.bg-white-transparent {
+              background-color:$transparent;
+         }
+    }
 }
 
 #leistungenkrauter{
     .nav-link {
-        &.active {
+        &._active {
             color: $green;
         }
     }
+    .navbar{
+         &.bg-white-transparent {
+              background-color:$white;
+         }
+    }
 }
+
 
 #leistungenverwendung {
     .nav-link {
-        &.active {
+        &._active {
              color: $red;
         }
+    }
+    .navbar{
+         &.bg-white-transparent {
+              background-color:$white;
+         }
     }
 }
 
 #leistungengrabpflege {
     .nav-link {
-        &.active {
+        &._active {
             color: $gray-light;
         }
+    }
+    .navbar{
+         &.bg-white-transparent {
+              background-color:$white;
+         }
     }
 }
     
 
+#events{
+    .nav-link {
+        color:$black;
+        &._active {
+            color: $black;
+        }
+        &._black {
+            color: $black;
+        }
+        &._white {
+            color: $white;
+        }
+    }
+    .navbar{
+         &.bg-white-transparent {
+              background-color:$transparent;
+         }
+    }
+}
+
+#kräutervonabisz{
+    .nav-link {
+        color:$black;
+        &._active {
+             color: $green;
+        }
+    }
+    .navbar{
+         &.bg-white-transparent {
+              background-color:$white;
+         }
+    }
+}
+
+#blog{
+    .nav-link {
+        color:$black;
+        &._active {
+             color: $yellow;
+        }
+    }
+    .navbar{
+         &.bg-white-transparent {
+              background-color:$white;
+         }
+    }
+}
+
+#kontakt{
+    .nav-link {
+        color:$black;
+        &._active {
+             color: $green;
+        }
+    }
+    .navbar{
+         &.bg-white-transparent {
+              background-color:$white;
+         }
+    }
+}
 
 
 .navbar {
@@ -40,7 +122,9 @@ $navbar-brand-width: 150px;
     height: $navbar-height;
     opacity: 1;
     transition: all 500ms ease;
- 
+    a {
+        transition: all 500ms ease;
+    }
     .navbar-nav {
         padding-right: 0.8rem;
     }
@@ -54,7 +138,7 @@ $navbar-brand-width: 150px;
     }
     
     .nav-link {
-        transition: padding 500ms ease;
+        transition: all 800ms ease;
         padding-top: .150rem;
         padding-bottom: .150rem; 
         font-size: $font-size-sm;

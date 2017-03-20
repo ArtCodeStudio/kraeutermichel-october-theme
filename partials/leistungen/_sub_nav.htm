@@ -3,16 +3,16 @@
     {% if not (active == 'leistungenkrauter' or active == 'leistungenverwendung' or active == 'leistungengrabpflege' ) %}
         {% set active ='leistungenkrauter' %}
     {% endif %}
-    
-    <a href="/leistungen-krauter" data-section='krauter' {% if active == 'leistungenkrauter' %} class="krauter" {% endif %} >
+    {#{{active}}#}
+    <a href="/leistungen-krauter" id='_leistungenkrauter'  {% if active == 'leistungenkrauter' %} class="_active" {% endif %} >
         Kräuter
     </a>
 
-    <a href="/leistungen-verwendung" data-section='verwendung' {% if active == 'leistungenverwendung' %} class="verwendung" {% endif %}>
+    <a href="/leistungen-verwendung" id='_leistungenverwendung' {% if active == 'leistungenverwendung' %} class="_active" {% endif %}>
         Verwendung
     </a>
 
-    <a href="/leistungen-grabpflege"  data-section='grabpflege' {% if active == 'leistungengrabpflege' %} class="grabpflege" {% endif %}>
+    <a href="/leistungen-grabpflege" id='_leistungengrabpflege'  {% if active == 'leistungengrabpflege' %} class="_active" {% endif %}>
         Grabpflege
     </a>
 
