@@ -9,15 +9,16 @@
             
             {% if active == 'leistungenkrauter' or 
                     active == 'leistungenverwendung' or
-                    active == 'leistungengrabpflege'  or 
-                    active == 'events' or
-                    active == 'kräutervonabisz' 
+                    active == 'leistungengrabpflege' or 
+                    active == 'blogpost'
             %}
                 {% set active_class = '_active' %}
             {% endif %}
 
             {% if active == item.viewBag.cssClass %}
+                {#{{active == item.viewBag.cssClass }}#}
                 {% set active_class = '_active' %}
+               
             {% else %}
                 {% set active_class = '' %}
             {% endif %}

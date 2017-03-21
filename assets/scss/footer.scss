@@ -1,5 +1,35 @@
+#home {
+ 
+    &.leistungenverwendung {
+        #footer-background {
+            background-color:$red;
+        }
+    }
+    &.leistungenkrauter {
+        #footer-background {
+            background-color:$green;
+        }
+    }
+    &.leistungengrabpflege {
+        #footer-background {
+            background-color: $gray-light;
+        }
+    }
+    &.blog {
+        #footer-background {
+            background-color:$yellow;
+        }
+    }
+    &.events {
+        #footer-background {
+            background-color:$red;
+        }
+    }
+}
 
-#events{
+
+
+#events {
     #footer-background {
         background-color:$red;
     }
@@ -19,8 +49,11 @@
 
 }
 
+// –––
+
 #footer-background {
     background-color:$green;
+    transition: all 1s ease;
 }
 
 .main-footer {

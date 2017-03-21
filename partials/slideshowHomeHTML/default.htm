@@ -21,7 +21,7 @@ slide.name | raw
 					{% endif %}
 
 					{#<{{slickSlideElement}} {% if(slide.link !='' ) %} href="{{ slide.link }}" {% endif %} id="{{ str_camel(__SELF__.alias) }}-slide-{{loop.index}}" class="slick-slide" data-slide-type="{{slide_type}}">#}
-					<div id="{{ str_camel(__SELF__.alias) }}-slide-{{loop.index}}" class="slick-slide" data-slide-type="{{slide_type}}">
+					<div id="{{ str_camel(__SELF__.alias) }}-slide-{{loop.index}}" class="slick-slide " data-slide-type="{{slide_type}}" data-section='{{slide.section}}'>
 						
 						{% if slide.mp4 != blank or slide.webm != blank or slide.ogg != blank %} 
 						

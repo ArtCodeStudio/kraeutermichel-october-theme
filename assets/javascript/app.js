@@ -2,9 +2,11 @@ var cache = {
 	lastElementClicked: null,
 	
 	$navbarMain: $('#navbar-main'),
-	$sidebar: $("#sidebar"),
-	$body: $('body'),
 	
+	$sidebar: $("#sidebar"),
+	sidebarInitialized:false,
+
+	$body: $('body'),
 	homeInitialized: false,
 
 	leistungenKrauterInitialized: false,
@@ -21,26 +23,63 @@ var cache = {
 var currentNamespace = null;
 
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+var changeNavbar = function () {
+    var windowScrollTop = $(window).scrollTop();
+    var viewportHeight = $( window ).height();
+    var mainNavbarHeight = 54; //$('#main-navbar').height();
+    var actionPosition = viewportHeight - mainNavbarHeight;
+    // if(windowScrollTop >= actionPosition ) {
+    //     $('#main-navbar, #sidebar').removeClass('navbar-big');
+    //     $('#main-navbar').removeClass('bg-white-transparent');
+    //     $('#main-navbar').addClass('bg-white');
+    //     console.log('bigger')
+    // } else {
+    //     $('#main-navbar, #sidebar').addClass('navbar-big');
+    //     $('#main-navbar').addClass('bg-white-transparent');
+    //     $('#main-navbar, #sidebar').removeClass('bg-white');
+	// 	 console.log('smaler')
+    // }
+
+    if (windowScrollTop === 0) {
+        $('#main-navbar').removeClass('bg-white-transparent');
+    }else{
+         $('#main-navbar').addClass('bg-white-transparent');
+    }
+     console.log('actionPosition',actionPosition);
+     console.log('windowScrollTop',windowScrollTop);
+}
+
+
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+
+
+// ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 var initSidebar = function() {
-	/**
-	 * @see http://dcdeiv.github.io/simpler-sidebar/
-	 */
-	$('#sidebar').show();
-	$('#sidebar').simplerSidebar({
-		opener: '.navbar-toggler',
-		animation: {
-			duration: 500,
-			easing: 'easeOutQuint'
-		},
-		sidebar: {
-			align: 'left',
-			width: 320,
-			closingLinks: 'a'
-		},
-		mask: {
-			display: true
-		}
-	});
+
+	if (cache.sidebarInitialized == false ) {
+		/**
+		 * @see http://dcdeiv.github.io/simpler-sidebar/
+		 */
+		cache.$sidebar.show();
+		cache.$sidebar.simplerSidebar({
+			opener: '.navbar-toggler',
+			animation: {
+				duration: 500,
+				easing: 'easeOutQuint'
+			},
+			sidebar: {
+				align: 'left',
+				width: 320,
+				closingLinks: 'a'
+			},
+			mask: {
+				display: true
+			}
+		});
+		cache.sidebarInitialized = true;
+	}
 }
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
@@ -51,6 +90,7 @@ var initSidebar = function() {
 var initSlideshow = function (selector) {
 	var $slideshow = $(selector);
 	if( !$slideshow.hasClass('slick-initialized') ) { // only init if slick is not already initialized
+		console.log('init slideshow ');
 		$slideshow.slick({
 			slidesToShow: 1,
 			slidesToScroll: 1,
@@ -67,17 +107,26 @@ var initSlideshow = function (selector) {
 var initSlideshowHome = function (selector) {
 	var $slideshow = $(selector);
 	if( !$slideshow.hasClass('slick-initialized') ) { // only init if slick is not already initialized
+		console.log('init slideshow home');		
 		$slideshow.slick({
 			slidesToShow: 1,
 			slidesToScroll: 1,
-			autoplay: true,
+			autoplay: false,
 			autoplaySpeed: 5000,
 			centerMode: true,
 			centerPadding: '0',
 			infinite: true,
 			dots: false,
 			arrows: true,
-		});
+		}).on('afterChange', function(event, slick, currentSlide, nextSlide){
+			var tmpBodyClass = $(slick.$slides.get(currentSlide)).data('section');
+			if (tmpBodyClass !== 'blog'){
+				tmpBodyClass = 'leistungen'+tmpBodyClass;
+			}
+			//console.log(tmpBodyClass);
+			cache.$body.removeClass();
+			cache.$body.addClass(tmpBodyClass);
+		})
 	}
 }
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -119,29 +168,18 @@ var initLeistungenSubnav = function () {
  */
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 var initHome = function (dataset) {
-	console.log('init home');
 	initSlideshowHome("#slideshowHomeHTML");
-	// if(! cache.homeInitialized ) { // just add ONE event listener
-	// 	//slideshowHomeJavaSciptInit('#slideshowHomeHTML');
-	// 	$(window).on('scrollstop', function () {
-	// 		console.log('-----onscrollstop');
-	// 		// changeNavbar(dataset);
-	// 	});
-	// 	cache.homeInitialized = true;
-	// }
 };
-
 
 var initLeistungenKrauter = function (dataset) {
 	
 	initLeistungenSubnav();
-	initSlideshow("#slideshowLeistungKrauterHTML");
 
 	var initCarousel = function () {
 		var $latestKrauterCarousel = $(".latest-krauter-carousel");
 		// only init if slick is not already initialized
 		if( !$latestKrauterCarousel.hasClass('slick-initialized') ) {
-			console.log('init slideshow');
+			console.log('init carousel');
 			$latestKrauterCarousel.slick({
 				slidesToShow: 4,
 				slidesToScroll: 1,
@@ -176,35 +214,40 @@ var initLeistungenKrauter = function (dataset) {
 			});
 		}
 	};
+
+	initSlideshow("#slideshowLeistungKrauterHTML");
 	initCarousel();	
 }
 var initLeistungenVerwendung = function (dataset) { 
 	initLeistungenSubnav();
-	initSlideshow("#slideshowLeistungVerwendungHTML");
+
+	initSlideshow("#slideshowLeistungVerwendungHTML");	
 }
 var initLeistungenGrabpflege = function (dataset) { 
 	initLeistungenSubnav();
 	initSlideshow("#slideshowLeistungGrabpflegeHTML");
 }
 
-
 var initEvents = function (dataset) { 
-	//$('.navbar-nav .events a').addClass( '_active' );
+	$('.navbar-nav .events a').addClass( '_active' );
 	$('#events .nav-link').addClass( '_white' );
 }
 
-
 var initKräutervonabisz = function (dataset) { 
 	$('.navbar-nav .kräutervonabisz a').addClass( '_active' );
-	var krauterListInit = function (selector) {
-		$('.grid').masonry({
-			itemSelector: '.grid-item',
-			columnWidth: 300,
-			isFitWidth: true,
-			gutter:30
-		});
-	}	
-	krauterListInit();
+
+	// if (!cache.krauterLexiconInitialized) {
+		var krauterListInit = function (selector) {
+			$('.grid').masonry({
+				itemSelector: '.grid-item',
+				columnWidth: 300,
+				isFitWidth: true,
+				gutter:30
+			});
+		}	
+		krauterListInit();
+		// cache.krauterLexiconInitialized = true;
+	// }
 }
 
 var initKrautpage = function (dataset) { 
@@ -260,7 +303,7 @@ var initTemplates = function () {
 	//console.log("currentStatus", currentStatus.namespace);
 	$('.navbar-nav a').removeClass( '_active' );
 	//$('#events .nav-link').removeClass( 'color', 'white' );
-	
+		
 	if ( currentStatus.namespace.substring(0, 10) === 'leistungen' ) {
 		var temp = currentStatus.namespace.replace("/", "-");
 		cache.$body.attr( 'id', temp );
@@ -327,6 +370,7 @@ var FadeTransition = Barba.BaseTransition.extend({
 	   * Do not forget to call .done() as soon your transition is finished!
 	   * .done() will automatically remove from the DOM the old Container
 	   */
+
 	  _this.done();
 	});
   }
@@ -354,10 +398,12 @@ var initBarba = function () {
 };
 
 
-
-
-
-$(document).ready(function(){
+$(document).ready(function() {
+	initSidebar();
 	initBarba();
+	changeNavbar();
+	$(window).on('resize scrollstop', function() {
+		changeNavbar();
+	});
 	// console.log('app init');
 });

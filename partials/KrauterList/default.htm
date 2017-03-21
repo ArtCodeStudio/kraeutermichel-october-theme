@@ -23,7 +23,7 @@ function onStart()
 <div class="grid _hidden-sm-down" >
     {% for kraut in krauter %}
 
-        {#<div class="grid-item">#}
+
         <a class="grid-item" href="https://xn--krutermichel-hcb.de/krauter-von-bis-z/{{kraut.slug}}">
             
             {% if kraut.image  %}
@@ -39,22 +39,14 @@ function onStart()
             </div>				
         
             <div class="card-block pt-1 pl-0 text-xs-center text-md-left">
-	            {#<a href="https://xn--krutermichel-hcb.de/krauter-von-bis-z/{{kraut.slug}}">#}
-                    <h4 class="card-title text-xs-center text-serif">{{ kraut.name }}</h4>
-                {#</a>#}
+                <h4 class="card-title text-xs-center text-serif">{{ kraut.name }}</h4>
             </div>
-        {#</div>#}
+
         </a>
-    {% endfor %} 
+    {% else %}
+        <p class="no-data">Kein Kraut gefunden</p>
+    {% endfor %}
 
 </div>
 
 
-
-{##
-# JavaScript
-#}
-{#{% if __SELF__.property('includeJavaScript') %}
-
-
-{% endif %}#}

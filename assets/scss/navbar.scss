@@ -1,16 +1,62 @@
 $navbar-brand-height: 37px;
 $navbar-brand-width: 150px;
 
+#logo{
+    height: 2.5rem;
+    margin-top: 0.4rem;
+}
+
+.logo-color {
+    fill:$white;  
+}
+
 #home {
-    .nav-link{
-        color:$white;
-    }
     .navbar{
-         &.bg-white-transparent {
-              background-color:$transparent;
-         }
+        .nav-link{
+            color:$white;
+        }
+        &.bg-white-transparent {
+            .nav-link {
+                color: $black;
+            }
+            .logo-color {
+                fill:$black;  
+            }
+        }
+    }
+    &.leistungenverwendung {
+        .bg-white-transparent {
+            .logo-color {
+                fill: $red;
+            }
+        }
+    }
+    &.leistungenkrauter {
+        .bg-white-transparent {
+            .logo-color {
+                fill: $green;
+            }
+            
+        }
+    }
+    &.leistungengrabpflege {
+        .bg-white-transparent {
+            .logo-color {
+                fill: $gray-light;
+            }
+        }
+    }
+    &.blog {
+        .bg-white-transparent {
+            .logo-color {
+                fill: $yellow;
+            }
+        }
     }
 }
+
+
+
 
 #leistungenkrauter{
     .nav-link {
@@ -20,11 +66,10 @@ $navbar-brand-width: 150px;
     }
     .navbar{
          &.bg-white-transparent {
-              background-color:$white;
+            //  background-color:$white;
          }
     }
 }
-
 
 #leistungenverwendung {
     .nav-link {
@@ -34,7 +79,7 @@ $navbar-brand-width: 150px;
     }
     .navbar{
          &.bg-white-transparent {
-              background-color:$white;
+            //  background-color:$white;
          }
     }
 }
@@ -47,33 +92,42 @@ $navbar-brand-width: 150px;
     }
     .navbar{
          &.bg-white-transparent {
-              background-color:$white;
+            //  background-color:$white;
          }
     }
 }
     
-
-#events{
-    .nav-link {
-        color:$black;
-        &._active {
-            color: $black;
+#events {
+    .navbar {
+        .nav-link {
+                color: $white;
         }
-        &._black {
-            color: $black;
-        }
-        &._white {
-            color: $white;
-        }
-    }
-    .navbar{
          &.bg-white-transparent {
-              background-color:$transparent;
+              //background-color:$transparent;
+
+            .nav-link {
+                color: $black;
+                &._active {
+                    color: $red;
+                }
+            }
+            .logo-color{
+                fill: $red;
+            }
          }
+        // .nav-link {
+        //     color:$black;
+        //     &._black {
+        //         color: $black;
+        //     }
+        //     &._white {
+        //         color: $white;
+        //     }
+        // }
     }
 }
 
-#kräutervonabisz{
+#kräutervonabisz {
     .nav-link {
         color:$black;
         &._active {
@@ -82,12 +136,12 @@ $navbar-brand-width: 150px;
     }
     .navbar{
          &.bg-white-transparent {
-              background-color:$white;
+            //  background-color:$white;
          }
     }
 }
 
-#blog{
+#blog, #blogpost {
     .nav-link {
         color:$black;
         &._active {
@@ -96,7 +150,7 @@ $navbar-brand-width: 150px;
     }
     .navbar{
          &.bg-white-transparent {
-              background-color:$white;
+            //  background-color:$white;
          }
     }
 }
@@ -110,7 +164,7 @@ $navbar-brand-width: 150px;
     }
     .navbar{
          &.bg-white-transparent {
-              background-color:$white;
+            //  background-color:$white;
          }
     }
 }
@@ -174,7 +228,9 @@ $navbar-brand-width: 150px;
             // opacity: 0;
         }
     }
-
+    @include media-breakpoint-down(xs) { 
+        background-color:$white,
+    }
 }
 
 .navbar-sticky-bottom-element {
