@@ -241,25 +241,28 @@ var initLeistungenKrauter = function (dataset) {
 
 	initSlideshow("#slideshowLeistungKrauterHTML");
 	initCarousel();	
+	$('#sidebar-wrapper .list-group .leistungen').addClass( '_active' );	
 }
 var initLeistungenVerwendung = function (dataset) { 
 	initLeistungenSubnav();
-
-	initSlideshow("#slideshowLeistungVerwendungHTML");	
+	initSlideshow("#slideshowLeistungVerwendungHTML");
+	$('#sidebar-wrapper .list-group .leistungen').addClass( '_active' );		
 }
 var initLeistungenGrabpflege = function (dataset) { 
 	initLeistungenSubnav();
 	initSlideshow("#slideshowLeistungGrabpflegeHTML");
+	$('#sidebar-wrapper .list-group .leistungen').addClass( '_active' );	
 }
 
 var initEvents = function (dataset) { 
 	$('.navbar-nav .events a').addClass( '_active' );
 	$('#events .nav-link').addClass( '_white' );
+	$('#sidebar-wrapper .list-group .events').addClass( '_active' );
 }
 
 var initKräuterABC = function (dataset) { 
-	$('.navbar-nav .kräutervonabisz a').addClass( '_active' );
-
+	$('.navbar-nav .kräuterabc a').addClass( '_active' );
+	$('#sidebar-wrapper .list-group .kräuterabc').addClass( '_active' );
 	// if (!cache.krauterLexiconInitialized) {
 		var krauterListInit = function (selector) {
 			$('.grid').masonry({
@@ -276,10 +279,12 @@ var initKräuterABC = function (dataset) {
 
 var initKrautpage = function (dataset) { 
 	$('.navbar-nav .kräutervonabisz a').addClass( '_active' );
+	$('#sidebar-wrapper .list-group .blog').addClass( '_active' );
 }
 
 var initBlog = function (dataset) { 
 	$('.navbar-nav .blog a').addClass( '_active' );
+	$('#sidebar-wrapper .list-group .blog').addClass( '_active' );
 }
 
 var initBlogPost = function (dataset) { 

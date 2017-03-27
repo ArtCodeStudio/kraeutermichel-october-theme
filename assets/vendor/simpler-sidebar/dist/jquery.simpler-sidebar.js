@@ -21,19 +21,24 @@
 				animationStart = {},
 				animationReset = {},
 
-				/** prevent page jump
-				 *
+				/** 
+				 * Marc's beautification
 				 */
-					// hiddenFlow = function() {
+				hiddenFlow = function() {
+					$( "html" ).css( "overflow-y", "scroll" );
+				},
+				autoFlow = function() {
+					//$( "body, html" ).css( "overflow-y", "scroll" );
+				},
+				/**
+				 * DEFAULT Scroll bar behavior
+				 */
+					// hiddenFlow = function() { //default
 					// 	$( "body, html" ).css( "overflow", "hidden" );
 					// },
-					hiddenFlow = function() {
-						$( "body, html" ).css( "overflow", "scroll" );
-					},
-			
-				autoFlow = function() {
-					$( "body, html" ).css( "overflow", "auto" );
-				},
+					// autoFlow = function() {
+					// 	$( "body, html" ).css( "overflow", "auto" );
+					// },
 
 				activate = {
 					duration: duration,
