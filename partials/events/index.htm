@@ -1,0 +1,72 @@
+[viewBag]
+snippetCode = "events"
+snippetName = "Events"
+==
+<div id="events">
+
+
+    <div class="container-fluid p-0">
+    
+        {# DESKTOP #}
+        <div class="background-box ratio-16-9 hidden-xs-down" 
+                style="display:block; background-image: url('https://kräutermichel.de/storage/app/media/Events/Events-Header.jpg');" 
+                title="{{ image.description }}">
+        </div>
+    
+        {# MOBILE #}
+        <div class="background-box _ratio-4-3 hidden-sm-up" 
+                style="display:block; background-image: url('https://kräutermichel.de/storage/app/media/Events/Events-Header.jpg');" 
+                title="{{ image.description }}">
+        </div>
+
+
+        {# MASK –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– #}
+        <div class="mask red-transparent"></div>
+        {# MASK –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– #}
+
+
+        {# DESKTOP #}
+        <div class="content-wrapper hidden-xs-down">
+            <h1>
+                Leckere Vorträge <br>
+                für Firmen & Privatpersonen<br>
+                <b>– für jung und alt.</b>
+            </h1>
+            <p>
+                Hier erfährst du wissenwertes über Kräuter,<br> 
+                dessen Vewendung, leckere Rezepte zum <br>
+                Nachkochen und Smoothie-Geheimnisse.
+            </p>
+            {#{% content 'events/header-text.htm' %}#}
+        </div>
+
+
+        {# MOBILE #}
+        <div class="content-wrapper text-center hidden-sm-up mobile">
+            <h1>
+                Leckere Vorträge 
+                für Firmen & Privatpersonen<br>
+                <b>– für jung und alt.</b>
+            </h1>
+            <p>
+                Hier erfährst du wissenwertes über Kräuter,
+                dessen Vewendung, leckere Rezepte zum
+                Nachkochen und Smoothie-Geheimnisse.
+            </p>
+            {#{% content 'events/header-text.htm' %}#}
+        </div>
+
+    </div>
+    
+
+    <div class="container"> 
+        <div class="row">            
+            <div class="col-xs-8 offset-xs-2 pl-0 py-5">
+                {% content 'events/content.htm' %}
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

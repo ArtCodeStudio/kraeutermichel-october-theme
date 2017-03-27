@@ -1,0 +1,45 @@
+#events {
+    .logo-color {
+        fill: $white;
+    }
+    .mask {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+    }
+    .content-wrapper {
+        position: absolute;
+        top:10vw;
+        left: 13vw;
+        color: $white;
+
+        @include media-breakpoint-up(xl) { 
+            top: 21vw;
+        }
+
+        h1{
+            color: $white;
+        }
+        
+        p{
+            line-height: 1.3;
+        }
+
+        &.mobile {
+             left: 0;
+             top: 19vw;
+            h1 {
+
+            }
+            p {
+
+            }
+        }
+    }
+
+
+}
+
+
+

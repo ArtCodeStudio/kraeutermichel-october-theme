@@ -1,0 +1,100 @@
+description = "Leistungen layout"
+
+[staticPage]
+==
+<?php
+// TODO wird diese funktion zweimal aufgerufen?
+function onMailSent() {
+    
+    $formVars = [
+        'receivermail' => post('receivermail'),
+        'receivername' => post('receivername'),
+        'succeesstext' => post('succeesstext'),
+        'receiverregard' => post('receiverregard'),
+        'mailtemplate' => post('mailtemplate'),
+        'name' => post('name'),
+        'email' => post('email'),
+        'regard' => post('regard'),
+        'sendermessage' => post('message'),
+    ];
+    
+    $formVars['receiverregard'] = str_replace("{{name}}", $formVars['name'], $formVars['receiverregard']);
+    $formVars['receiverregard'] = str_replace("{{regard}}", $formVars['regard'], $formVars['receiverregard']);
+    
+    $buildOwnerMessage = function ($message) use ($formVars) {
+        // TODO use email and name from backend or theme settings
+        $message->to($formVars['receivermail'], $formVars['receivername']);
+        $message->subject($formVars['receiverregard']);
+    };
+
+    // mail to site owner
+    Mail::send($formVars['mailtemplate'], $formVars, $buildOwnerMessage);
+      
+    $this['result'] = $formVars['succeesstext'];
+}
+?>
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{{ this.theme.site_name }} - {{ this.page.title }}</title>
+        <meta name="description" content="{{ this.page.meta_description }}">
+        <meta name="title" content="{{ this.page.meta_title }}">
+        <meta name="author" content="Pascal Garber">
+        <meta http-equiv="language" content="deutsch, de">
+        <meta name="Keywords" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        {% styles %}
+        {% if this.theme.color %}
+            {% set style = 'assets/scss/theme-' ~ this.theme.color ~ '.scss' %}
+        {% else %}
+            {% set style = 'assets/scss/theme-blue.scss' %}
+        {% endif %}
+        <link href="{{ [style,]|theme }}" rel="stylesheet">
+        {% partial "_head_scripts" %} 
+    </head>
+    <body id="{{ str_studly(this.page.title) }}" data-spy="scroll">
+        
+        {% partial 'navigation/navigation' class="bg-white-transparent" %}
+
+        <div class="container text-center mt-5 pt-2 leistungen-subnav">
+            <div class="row">            
+                <div class="col-xs-12 text-center nav-wrapper">
+                    {% partial 'leistungen/_sub_nav.htm' active="krauter" %}
+                </div>
+            </div>
+        </div>
+
+        <div id="barba-wrapper">
+            <div
+                {% partial 'barba-container-attributes' %}
+            >
+                {# Content #}
+                <section id="layout-content">
+                    {% page %}
+                </section>
+            </div>
+        </div>
+        
+        {% partial 'footer' %}
+        {# Scripts #}
+
+       {# 
+            {% partial "_foot_scripts" %}  
+        #}
+
+        {% framework %}
+        
+        {# More theme variables #}
+        <script>
+            //L.Icon.Default.imagePath = "/themes/{{this.theme.dirname}}/assets/vendor/leaflet/dist/images/";
+        </script>
+        {% scripts %}
+
+
+        {% partial "_foot_scripts" %}  
+
+    </body>
+</html>

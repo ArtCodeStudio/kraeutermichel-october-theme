@@ -1,0 +1,64 @@
+
+
+#slideshowHomeHTML {
+    
+
+    
+    .mask{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+    }
+    .carousel-caption-wrapper {
+        
+        top: 0;
+        font-size: $font-size-base;
+       // font-family: $font-family-sans-serif-bold;
+        left: 4vw;
+        padding: 3vw;
+        text-align: center;
+        line-height:1.3;
+        
+            
+        // Extra large devices (large desktops, 1200px and up)
+        @media (min-width: 1200px) { 
+            top: 15vw !important;
+            left: 12vw !important;
+            text-align: left !important;
+           
+        }
+        // LG
+        @media (min-width: 992px) and (max-width: 1199px) {
+            top: 13vw !important;
+            left: 12vw !important;
+            text-align: left !important;
+        }
+        // MD
+        @media (min-width: 768px) and (max-width: 991px) { 
+            top: 11vw !important;
+            left: 12vw !important;
+             text-align: left !important;
+           
+        }     
+
+        // Small devices (landscape phones, 576px and up)
+        @media (min-width: 576px) and (max-width: 767px) { 
+            top: 5vw !important;
+            left: 12vw !important;
+            text-align: center !important;
+            
+        }
+        @media (max-width: 576px)  { 
+            margin-top: 3.4rem;
+        }
+
+        .carousel-caption-content{
+            h1 {
+                color: $white;
+            }
+            color: $white;
+        }
+    }
+}
+
