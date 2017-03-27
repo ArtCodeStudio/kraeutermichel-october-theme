@@ -40,9 +40,9 @@
 						opacity:1;
 					}
 				
-					.btn {
-						padding: 0.25rem 1rem !important;
-					}
+					// .btn {
+					// 	padding: 0.25rem 1rem !important;
+					// }
 
 					// Extra large devices (large desktops, 1200px and up)
 					@media (min-width: 1200px) { 
@@ -77,32 +77,20 @@
 		}
 
 		.slick-prev {
-			left: -25px;
+			left: -35px;
+			margin-top: -0.7rem;
 			[dir="rtl"] & {
 				left: auto;
 				right: -25px;
-			}
-			&:before {
-				content: $slick-prev-character;
-				[dir="rtl"] & {
-					content: $slick-next-character;
-				}
-				color:$black;
 			}
 		}
 
 		.slick-next {
 			right: -25px;
+			margin-top: -0.1rem;
 			[dir="rtl"] & {
 				left: -25px;
 				right: auto;
-			}
-			&:before {
-				content: $slick-next-character;
-				[dir="rtl"] & {
-					content: $slick-prev-character;
-				}
-				color:$black;
 			}
 		}
 	}

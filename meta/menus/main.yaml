@@ -27,13 +27,13 @@ items:
             cssClass: events
             isExternal: '0'
     -
-        title: 'Kräuter von A bis Z'
+        title: 'Kräuter ABC'
         type: cms-page
-        code: kräutervonabisz
-        reference: krauter-von-bis-z
+        code: kräuterabc
+        reference: krauter-abc
         viewBag:
             isHidden: '0'
-            cssClass: kräutervonabisz
+            cssClass: kräuterabc
             isExternal: '0'
     -
         title: Blog

@@ -37,9 +37,11 @@
                             transition-property: all;
                             transition-timing-function: ease;
                         }
-                        &:hover {
-                            @extend .z-depth-1-half;
-                            //border: 1px solid  $brand-primary;
+                        .featured-image{
+                            &:hover {
+                                @extend .z-depth-1-half;
+                                            
+                            }
                         }
                         .card-block {
                 
@@ -87,11 +89,7 @@
     .kraut-wrapper {
         max-width: 42rem;
         margin: 0 auto;
-        .featured-image{
-           // padding: 0 16rem !important;
-           // max-width: $max-width;
-           // margin: 0 auto;
-        }
+
         h1 {
             font-family: $font-family-sans-serif-italic;
         }

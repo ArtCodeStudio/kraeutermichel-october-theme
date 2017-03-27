@@ -28,13 +28,13 @@
 
 /* Icons */
 @if $slick-font-family == "slick" {
-    @font-face {
+   /* @font-face {
         font-family: "slick";
         src: slick-font-url("slick.eot");
-        src: slick-font-url("slick.eot?#iefix") format("embedded-opentype"), slick-font-url("slick.woff") format("woff"), slick-font-url("slick.ttf") format("truetype"), slick-font-url("slick.svg#slick") format("svg");
+        //src: slick-font-url("slick.eot?#iefix") format("embedded-opentype"), slick-font-url("slick.woff") format("woff"), slick-font-url("slick.ttf") format("truetype"), slick-font-url("slick.svg#slick") format("svg");
         font-weight: normal;
         font-style: normal;
-    }
+    }*/
 }
 
 /* Arrows */
@@ -50,7 +50,7 @@
     cursor: pointer;
     background: transparent;
     color: transparent;
-    top: 50%;
+    top: 45.7%;
     -webkit-transform: translate(0, -50%);
     -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
@@ -65,18 +65,18 @@
             opacity: $slick-opacity-on-hover;
         }
     }
-    &.slick-disabled:before {
-        opacity: $slick-opacity-not-active;
-    }
-    &:before {
-        font-family: $slick-font-family;
-        font-size: 20px;
-        line-height: 1;
-        color: $slick-arrow-color;
-        opacity: $slick-opacity-default;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
+    // &.slick-disabled:before {
+    //     opacity: $slick-opacity-not-active;
+    // }
+    // &:before {
+    //     font-family: $slick-font-family;
+    //     font-size: 20px;
+    //     line-height: 1;
+    //     color: $slick-arrow-color;
+    //     opacity: $slick-opacity-default;
+    //     -webkit-font-smoothing: antialiased;
+    //     -moz-osx-font-smoothing: grayscale;
+    // }
 }
 
 
@@ -88,27 +88,17 @@
     // }
     z-index: 10;
     left: 3rem;
-    &:before {
-        content: $slick-prev-character;
-        [dir="rtl"] & {
-            content: $slick-next-character;
-        }
-    }
+    // &:before {
+    //     content: $slick-prev-character;
+    //     [dir="rtl"] & {
+    //         content: $slick-next-character;
+    //     }
+    // }
 }
 
 .slick-next {
-    // right: -25px;
-    // [dir="rtl"] & {
-    //     left: -25px;
-    //     right: auto;
-    // }
     right: 3rem;
-    &:before {
-        content: $slick-next-character;
-        [dir="rtl"] & {
-            content: $slick-prev-character;
-        }
-    }
+    margin-top: 0.6rem;
 }
 
 
@@ -202,3 +192,14 @@
     }
 
 }
+
+
+#home {
+    .slick-prev, .slick-next {
+        .fill-color {
+            fill:$white;
+        }
+    }
+
+}
+

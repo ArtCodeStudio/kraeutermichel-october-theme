@@ -3,11 +3,15 @@ $navbar-brand-width: 150px;
 
 #logo{
     height: 2.5rem;
-    margin-top: 0.4rem;
+    margin-top: -0.3rem;
 }
 
 .logo-color {
     fill:$white;  
+}
+
+.nav-link {
+    padding-left: 1.8rem !important;
 }
 
 #home {
@@ -24,39 +28,31 @@ $navbar-brand-width: 150px;
             }
         }
     }
-    &.leistungenverwendung {
-        .bg-white-transparent {
+
+    @include media-breakpoint-only(xs) {
+        &.leistungenverwendung {
             .logo-color {
                 fill: $red;
             }
         }
-    }
-    &.leistungenkrauter {
-        .bg-white-transparent {
+        &.leistungenkrauter {
             .logo-color {
                 fill: $green;
             }
-            
         }
-    }
-    &.leistungengrabpflege {
-        .bg-white-transparent {
+        &.leistungengrabpflege {
             .logo-color {
                 fill: $gray-light;
             }
         }
-    }
-    &.blog {
-        .bg-white-transparent {
+        &.blog {
             .logo-color {
                 fill: $yellow;
             }
         }
     }
+
 }
-
-
-
 
 #leistungenkrauter{
     .nav-link {
@@ -176,6 +172,10 @@ $navbar-brand-width: 150px;
     height: $navbar-height;
     opacity: 1;
     transition: all 500ms ease;
+    padding-top: 1rem;
+    @include media-breakpoint-only(xs) {
+        padding-top: 0.5rem;
+    }
     a {
         transition: all 500ms ease;
     }
@@ -240,10 +240,11 @@ $navbar-brand-width: 150px;
 }
 
 .navbar-toggler-right {
-    position: absolute;
-    left: 1rem;
+    // position: absolute;
+    // left: 1rem;
 }
 
 .navbar-toggler {
     border: none;
+    margin-top: 0.3rem;
 }

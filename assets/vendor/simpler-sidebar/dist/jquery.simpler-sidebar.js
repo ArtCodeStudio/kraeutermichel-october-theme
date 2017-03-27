@@ -21,9 +21,16 @@
 				animationStart = {},
 				animationReset = {},
 
-				hiddenFlow = function() {
-					$( "body, html" ).css( "overflow", "hidden" );
-				},
+				/** prevent page jump
+				 *
+				 */
+					// hiddenFlow = function() {
+					// 	$( "body, html" ).css( "overflow", "hidden" );
+					// },
+					hiddenFlow = function() {
+						$( "body, html" ).css( "overflow", "scroll" );
+					},
+			
 				autoFlow = function() {
 					$( "body, html" ).css( "overflow", "auto" );
 				},

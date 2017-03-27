@@ -12,10 +12,8 @@ code = "main"
 
 <!-- Nav -->
 <nav class="navbar fixed-top navbar-toggleable-xs navbar-light {{class}} fg-primary navbar-big" id="main-navbar">
-    <button class="navbar-toggler navbar-toggler-right hidden-md-up" type="button">
-        &#9776;
-    </button>
-    <a href="/" class="navbar-brand hidden-xs-down">
+
+    <a href="/" class="navbar-brand">
 
         <svg version="1.1" id="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
             viewBox="0 0 48.9 64.8" style="enable-background:new 0 0 48.9 64.8;" xml:space="preserve">
@@ -32,6 +30,10 @@ code = "main"
         </svg>
 
     </a>
+    <button class="navbar-toggler navbar-toggler-right hidden-md-up" type="button">
+        &#9776;
+    </button>
+
     <div class="container">
         <div class="w-100 hidden-sm-down">
             {% partial 'navigation/_navbar-items' 

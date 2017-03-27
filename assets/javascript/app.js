@@ -22,6 +22,31 @@ var cache = {
 
 var currentNamespace = null;
 
+
+
+var prevButton = `
+	<button type="button" class="slick-prev">
+		<svg version="1.1" id="left-arrow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+			viewBox="0 0 29.6 58.1" style="enable-background:new 0 0 29.6 58.1;" xml:space="preserve">
+			<g>
+			<path class="fill-color" d="M28.9,0c0.1,0,0.3,0,0.4,0.1c0.2,0.2,0.2,0.5,0,0.7L1.4,28.7l28.1,28.6c0.2,0.2,0.2,0.5,0,0.7s-0.5,0.2-0.7,0L0,28.7
+			L28.5,0.1C28.6,0,28.8,0,28.9,0z"/>
+			</g>
+		</svg>
+	</button>
+`;
+var nextButton = `
+	<button type="button" class="slick-next">
+		<svg version="1.1" id="right-arrow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+			viewBox="0 0 29.6 58.1" style="enable-background:new 0 0 29.6 58.1;" xml:space="preserve">
+			<g>
+				<path class="fill-color" d="M0.7,58.1c-0.1,0-0.3,0-0.4-0.1c-0.2-0.2-0.2-0.5,0-0.7l27.8-27.8L0.1,0.9c-0.2-0.2-0.2-0.5,0-0.7s0.5-0.2,0.7,0l28.8,29.3 L1.1,58C1,58.1,0.9,58.1,0.7,58.1z"/>
+			</g>
+		</svg>
+	</button>
+`;
+
+
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 var changeNavbar = function () {
     var windowScrollTop = $(window).scrollTop();
@@ -48,13 +73,7 @@ var changeNavbar = function () {
      console.log('actionPosition',actionPosition);
      console.log('windowScrollTop',windowScrollTop);
 }
-
-
-
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-
-
-
 // ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 var initSidebar = function() {
 
@@ -70,7 +89,7 @@ var initSidebar = function() {
 				easing: 'easeOutQuint'
 			},
 			sidebar: {
-				align: 'left',
+				align: 'right',
 				width: 320,
 				closingLinks: 'a'
 			},
@@ -105,19 +124,22 @@ var initSlideshow = function (selector) {
 	}
 }
 var initSlideshowHome = function (selector) {
+
 	var $slideshow = $(selector);
 	if( !$slideshow.hasClass('slick-initialized') ) { // only init if slick is not already initialized
 		console.log('init slideshow home');		
 		$slideshow.slick({
 			slidesToShow: 1,
 			slidesToScroll: 1,
-			autoplay: false,
+			autoplay: true,
 			autoplaySpeed: 5000,
 			centerMode: true,
 			centerPadding: '0',
 			infinite: true,
 			dots: false,
 			arrows: true,
+			prevArrow: prevButton,
+    		nextArrow: nextButton,
 		}).on('afterChange', function(event, slick, currentSlide, nextSlide){
 			var tmpBodyClass = $(slick.$slides.get(currentSlide)).data('section');
 			if (tmpBodyClass !== 'blog'){
@@ -188,6 +210,8 @@ var initLeistungenKrauter = function (dataset) {
 				centerMode: false,
 				centerPadding: '0',
 				infinite: true,
+				prevArrow: prevButton,
+    			nextArrow: nextButton,
 				responsive: [
 					{
 						breakpoint: 1200,
@@ -233,7 +257,7 @@ var initEvents = function (dataset) {
 	$('#events .nav-link').addClass( '_white' );
 }
 
-var initKräutervonabisz = function (dataset) { 
+var initKräuterABC = function (dataset) { 
 	$('.navbar-nav .kräutervonabisz a').addClass( '_active' );
 
 	// if (!cache.krauterLexiconInitialized) {
@@ -260,10 +284,12 @@ var initBlog = function (dataset) {
 
 var initBlogPost = function (dataset) { 
 	$('.navbar-nav .blog a').addClass( '_active' );
+	$('#sidebar-wrapper .list-group .blog').addClass( '_active' );
 }
 
 var initKontakt = function (dataset) { 
 	$('.navbar-nav .kontakt a').addClass( '_active' );
+	$('#sidebar-wrapper .list-group .kontakt').addClass( '_active' );
 }
 
 
@@ -279,7 +305,7 @@ var initTemplate = {
 	'leistungenverwendung': initLeistungenVerwendung,
 	'leistungengrabpflege': initLeistungenGrabpflege,
 	'events': initEvents,
-	'kräutervonabisz': initKräutervonabisz,
+	'kräuterabc': initKräuterABC,
 	'krautpage': initKrautpage,
 	'blog': initBlog,
 	'blogpost': initBlogPost,
@@ -302,6 +328,8 @@ var initTemplates = function () {
 
 	//console.log("currentStatus", currentStatus.namespace);
 	$('.navbar-nav a').removeClass( '_active' );
+	$('#sidebar-wrapper a').removeClass( '_active' );
+
 	//$('#events .nav-link').removeClass( 'color', 'white' );
 		
 	if ( currentStatus.namespace.substring(0, 10) === 'leistungen' ) {
@@ -336,9 +364,9 @@ var FadeTransition = Barba.BaseTransition.extend({
 
 	// As soon the loading is finished and the old page is faded out, let's fade the new page
 	Promise
-	  .all([this.newContainerLoading, this.fadeOut()])
-	  .then(this.fadeIn.bind(this))
-	  .then(	$('html,body').animate({ scrollTop: 0 }, 'slow') );
+	  .all( [this.newContainerLoading, this.fadeOut()] )
+	  .then( this.fadeIn.bind(this) )
+	  .then( $('html,body').animate({ scrollTop: 0 }, 'slow') );
   },
 
   fadeOut: function () {

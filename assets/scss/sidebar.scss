@@ -24,5 +24,55 @@
         fill:green !important;    
     }
 }
+#leistungenkrauter {
+    .list-group-item {
+        &._active {
+            color: $green !important;
+        }
+    }
+}
+#leistungenverwendung {
+    .list-group-item {
+        &._active {
+            color: $red !important;
+        }
+    }
+}
+#leistungengrabpflege {
+    .list-group-item {
+        &._active {
+            color: $gray-light !important;
+        }
+    }
+}
 
-    
+#kräuterabc {
+    .list-group-item {
+        &._active {
+            color: $green !important;
+        }
+    }
+}
+
+#events {
+    .list-group-item {
+        &._active {
+            color: $red !important;
+        }
+    }
+}
+
+#blog {
+    .list-group-item {
+        &._active {
+            color: $yellow !important;
+        }
+    }
+}
+#kontakt {
+    .list-group-item {
+        &._active {
+            color: $green !important;
+        }
+    }
+}

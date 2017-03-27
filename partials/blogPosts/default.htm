@@ -19,10 +19,12 @@
 
 
                 <div class="featured-images text-center "> 
-                    <div class="background-box ratio-4-3" 
-                            style="display:block; background-image: url({{ image }});" 
-                            title="{{ image.description }}">
-                    </div>
+                    <a href="{{ post.url }}" class="">
+                        <div class="background-box ratio-4-3" 
+                                style="display:block; background-image: url({{ image }});" 
+                                title="{{ image.description }}">
+                        </div>
+                    </a>
                 </div>
             </div>
 
@@ -44,10 +46,12 @@
                 {% if post.featured_images.count %}
                     <div class="featured-images text-center "> 
                         {% set image = post.featured_images[0].thumb(auto,350)%}
-                        <div class="background-box ratio-4-3" 
-                                style="display:block; background-image: url({{ image }});" 
-                                title="{{ image.description }}">
-                        </div>
+                        <a href="{{ post.url }}" class="">
+                            <div class="background-box ratio-4-3" 
+                                    style="display:block; background-image: url({{ image }});" 
+                                    title="{{ image.description }}">
+                            </div>
+                        </a>
                     </div>
                 {% endif %}
             </div>
