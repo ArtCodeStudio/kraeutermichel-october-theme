@@ -139,9 +139,10 @@ $navbar-brand-width: 150px;
         }
     }
     .navbar{
-         &.bg-white-transparent {
-            //  background-color:$white;
-         }
+        background-color:  transparentize($white, 0.1); 
+        &.bg-white-transparent {
+        //  background-color:$white;
+        }
     }
 }
 
@@ -153,9 +154,10 @@ $navbar-brand-width: 150px;
         }
     }
     .navbar{
-         &.bg-white-transparent {
-            //  background-color:$white;
-         }
+        background-color:  transparentize($white, 0.1); 
+        &.bg-white-transparent {
+        //  background-color:$white;
+        }
     }
 }
 
@@ -167,9 +169,10 @@ $navbar-brand-width: 150px;
         }
     }
     .navbar{
-         &.bg-white-transparent {
-            //  background-color:$white;
-         }
+        background-color:  transparentize($white, 0.1); 
+        &.bg-white-transparent {
+        //  background-color:$white;
+        }
     }
 }
 
