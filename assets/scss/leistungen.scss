@@ -73,7 +73,12 @@
         }
         .slick-carousel .slick-dots li button:before{
             color:$green;
-        }  
+        }
+        .justify-content-center{
+            h1{
+                width:100%;
+            }
+        }
     }
 } 
 #leistungenverwendung {
