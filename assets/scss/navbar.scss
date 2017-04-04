@@ -54,6 +54,11 @@ $navbar-brand-width: 150px;
 
 }
 
+
+.navbar.bg-white-transparent {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
 #leistungenkrauter{
     .nav-link {
         &._active {
@@ -64,6 +69,7 @@ $navbar-brand-width: 150px;
          &.bg-white-transparent {
             //  background-color:$white;
          }
+        background-color:  transparentize($white, 0.1); 
     }
 }
 
@@ -77,6 +83,7 @@ $navbar-brand-width: 150px;
          &.bg-white-transparent {
             //  background-color:$white;
          }
+        background-color:  transparentize($white, 0.1); 
     }
 }
 
@@ -87,6 +94,7 @@ $navbar-brand-width: 150px;
         }
     }
     .navbar {
+         background-color:  transparentize($white, 0.1); 
          &.bg-white-transparent {
             //  background-color:$white;
          }
