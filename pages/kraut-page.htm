@@ -1,10 +1,9 @@
 title = "KrautPage"
-url = "/krauter-von-bis-z/:slug"
+url = "/krauter-abc/:slug"
 layout = "default"
 is_hidden = 0
 
 [KrautPage]
-slug = "{{ :slug }}"
 ==
 <div id="krauter-abc-kraut">
 
@@ -14,7 +13,8 @@ slug = "{{ :slug }}"
         <div class="row hidden-sm-down" > 
             <nav class="col-xs-12 text-center krauterlist-nav-wrapper pt-3">
                 {% for letter in 'a'..'z' %}     
-                    {% set base_url = 'https://kräutermichel.de/krauter-von-bis-z' %}
+                    {% set base_url = 'https://kräutermichel.de/krauter-abc' %}
+                    {#{% set base_url = '/krauter-von-bis-z' %}#}
                     {% set param =  "?query=#{ letter|upper}" %} 
                     <a href="{{ base_url }}/{{ param }}"> <h3>{{ letter|upper }}</h3> </a>
                 {% endfor %}
