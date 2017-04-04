@@ -79,19 +79,19 @@
 		.slick-prev {
 			left: -35px;
 			margin-top: -0.7rem;
-			[dir="rtl"] & {
-				left: auto;
-				right: -25px;
-			}
+			// [dir="rtl"] & {
+			// 	left: auto;
+			// 	right: -25px;
+			// }
 		}
 
 		.slick-next {
 			right: -25px;
-			margin-top: -0.1rem;
-			[dir="rtl"] & {
-				left: -25px;
-				right: auto;
-			}
+			margin-top: 0.45rem;
+			// [dir="rtl"] & {
+			// 	left: -25px;
+			// 	right: auto;
+			// }
 		}
 	}
 
