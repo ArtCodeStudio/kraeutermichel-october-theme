@@ -1,18 +1,5 @@
 [viewBag]
 ==
-<?php
-use JumpLink\KrauterVonBisZ\Models\Kraut as Kraut;
-
-function onStart()
-{
-   
-   // $this['krauter'] = Kraut::all();
-   // var_dump(Input::get("page") );
-    // var_dump(Input::get("query") );
-  
-}
-?>
-==
 {##
  # Parent : .krauterlist-wrapper
  #}
@@ -29,6 +16,7 @@ function onStart()
             {% else %}
                 {% set image = 'https://kräutermichel.de/storage/app/media/Kraeuter_von_A_bis_Z/Platzhalter.jpg' %}
             {% endif %}
+       
             <div class="featured-image text-center "> 
                 <div class="background-box ratio-4-3" 
                         style="display:block; background-image: url({{ image }});" 

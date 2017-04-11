@@ -6,7 +6,6 @@
 <h1 class="green">{{ kraut.name| uppercase }}</h1>
 <p class="">{{ kraut.name_latein }}</p>
 
-
 {% if kraut.image  %}
     {% set image = kraut.image|mediathumb_resize('width', 350) %}
 {% else %}

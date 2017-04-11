@@ -425,7 +425,7 @@ var initBarba = function () {
 	return FadeTransition;
   };
   // activate precache
-  Barba.Prefetch.init();
+  //Barba.Prefetch.init();
   initTemplates();
   Barba.Pjax.start();
 };
