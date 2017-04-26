@@ -30,8 +30,13 @@ postPage = "blogpost"
                          {% set category = post.categories[0].slug %}
                     {% endif %}
 
-                    {% set image = post.featured_images[0].thumb(auto,350)%}
-                   
+                    {#{% set image = post.featured_images[0].thumb(auto,350)%}#}
+                    {% if post.featured_images[0]  %}
+                        {%  set image = post.featured_images[0].thumb(auto,350) %}
+                    {% else %}
+                        {% set image = 'https://kräutermichel.de/storage/app/media/Kraeuter_von_A_bis_Z/Platzhalter.jpg' %}
+                    {% endif %}      
+
                     <div class="background-box ratio-home" 
                         style="display:block; background-image: url({{ image }});" 
                         title="{{ image.description }}">
@@ -49,7 +54,12 @@ postPage = "blogpost"
                             {% set category = post.categories[0].slug %}
                         {% endif %}
                         
-                        {% set image = post.featured_images[0].thumb(auto,350)%}
+                        {#{% set image = post.featured_images[0].thumb(auto,350)%}#}
+                        {% if post.featured_images[0]   %}
+                            {%  set image = post.featured_images[0].thumb(auto,350) %}
+                        {% else %}
+                            {% set image = 'https://kräutermichel.de/storage/app/media/Kraeuter_von_A_bis_Z/Platzhalter.jpg' %}
+                        {% endif %}
                         <div class="background-box ratio-5-2" 
                             style="display:block; background-image: url({{ image }});" 
                             title="{{ image.description }}">
@@ -66,7 +76,12 @@ postPage = "blogpost"
                             {% set category = post.categories[0].slug %}
                         {% endif %}
 
-                        {% set image = post.featured_images[0].thumb(auto,350)%}
+                        {#{% set image = post.featured_images[0].thumb(auto,350)%}#}
+                        {% if post.featured_images[0]   %}
+                            {%  set image = post.featured_images[0].thumb(auto,350) %}
+                        {% else %}
+                            {% set image = 'https://kräutermichel.de/storage/app/media/Kraeuter_von_A_bis_Z/Platzhalter.jpg' %}
+                        {% endif %}
                         <div class="background-box ratio-5-2" 
                             style="display:block; background-image: url({{ image }});" 
                             title="{{ image.description }}">
@@ -100,8 +115,12 @@ postPage = "blogpost"
                             {% set category = post.categories[0].slug %}
                         {% endif %}
 
-                        {% set image = post.featured_images[0].thumb(auto,350)%}
-                    
+                        {#{% set image = post.featured_images[0].thumb(auto,350)%}#}
+                        {% if post.featured_images[0] %}
+                            {%  set image = post.featured_images[0].thumb(auto,350) %}
+                        {% else %}
+                            {% set image = 'https://kräutermichel.de/storage/app/media/Kraeuter_von_A_bis_Z/Platzhalter.jpg' %}
+                        {% endif %}
                         <div class="background-box ratio-home" 
                             style="display:block; background-image: url({{ image }});" 
                             title="{{ image.description }}">

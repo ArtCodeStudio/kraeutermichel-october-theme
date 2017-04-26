@@ -7,30 +7,21 @@
 <h1 class="text-center mb-6">{{post.title}}</h1>
 
 {# FEATURED IMAGE #}
-{% if post.featured_images.count %}
-    <div class="featured-image text-center mt-3">
-        {% for image in post.featured_images %}
-            <p>
-                <div class="background-box ratio-4-3" 
-                        style="display:block; background-image: url({{ image.path }});" 
-                        title="{{ image.description }}">
-                </div> 
-            </p>
-        {% endfor %}
-    </div>
-{% endif %}
+<div class="featured-image text-center mt-3">
 
+    {% if post.featured_images.count %}
+        {% set image = post.featured_images[0].path %}
+    {% else %}
+        {% set image = 'https://kräutermichel.de/storage/app/media/Kraeuter_von_A_bis_Z/Platzhalter.jpg' %}
+    {% endif %}
+
+    <p>
+        <div class="background-box ratio-4-3" 
+                style="display:block; background-image: url({{ image }});" 
+                title="{{ image.description }}">
+        </div> 
+    </p>
+
+</div>
 
 <div class="content">{{ post.content_html|raw }}</div>
-
-
-
-{#<p class="info">
-    Posted
-    {% if post.categories.count %} in
-        {% for category in post.categories %}
-            <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
-        {% endfor %}
-    {% endif %}
-    on {{ post.published_at|date('M d, Y') }}
-</p>#}

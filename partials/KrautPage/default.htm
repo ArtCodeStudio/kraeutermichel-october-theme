@@ -7,7 +7,8 @@
 <p class="">{{ kraut.name_latein }}</p>
 
 {% if kraut.image  %}
-    {% set image = kraut.image|mediathumb_resize('width', 350) %}
+    {#{% set image = kraut.image|mediathumb_resize('width', 350) %}#}
+    {% set image = kraut.image |media %}
 {% else %}
     {% set image = 'https://kräutermichel.de/storage/app/media/Kraeuter_von_A_bis_Z/Platzhalter.jpg' %}
 {% endif %}
