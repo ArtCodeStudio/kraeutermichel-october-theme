@@ -278,7 +278,7 @@ var initKräuterABC = function (dataset) {
 }
 
 var initKrautpage = function (dataset) { 
-	$('.navbar-nav .kräutervonabisz a').addClass( '_active' );
+	$('.navbar-nav .kräuterabc a').addClass( '_active' );
 	$('#sidebar-wrapper .list-group .blog').addClass( '_active' );
 }
 
