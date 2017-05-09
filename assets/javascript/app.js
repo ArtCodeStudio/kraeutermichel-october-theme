@@ -295,11 +295,33 @@ var initBlogPost = function (dataset) {
 var initKontakt = function (dataset) { 
 	$('.navbar-nav .kontakt a').addClass( '_active' );
 	$('#sidebar-wrapper .list-group .kontakt').addClass( '_active' );
+
+	$(document).on('submit','.contactForm', function(e) {
+		e.preventDefault();
+		var dataString = $('.contactForm').serialize();
+
+        jQuery.ajax({
+            url: "/send-mail",
+            data: dataString,
+            type: "POST",
+            success: function(data) {
+				console.log('result',data);
+            },
+            error: function (e) {
+				console.log(e);
+			}
+        });
+    
+    
+	});
 }
 
 var initImpressum = function (dataset) { 
 	// $('.navbar-nav .kontakt a').addClass( '_active' );
 	// $('#sidebar-wrapper .list-group .kontakt').addClass( '_active' );
+
+
+
 }
 
 

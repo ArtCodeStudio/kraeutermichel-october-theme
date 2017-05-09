@@ -3409,7 +3409,7 @@ form:
                 default: 340px
                 tab: Bootstrap 4.0.0-alpha.6
                 assetVar: pre-scrollable-max-height
-            contact_succeess_text:
+            contact_success_text:
                 label: Contact form success text
                 type: text
                 default: Sent message successfully
@@ -3422,7 +3422,7 @@ form:
                 label: Mail Template
                 type: text
                 comment: The template code you want to use
-                default: 'viola::contact-notification'
+                default: 'kontakt-krautermichel'
     fields:
         color:
             label: Color scheme

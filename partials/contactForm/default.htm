@@ -1,9 +1,18 @@
 [viewBag]
 ==
 <?php
-// TODO wird diese funktion zweimal aufgerufen?
+
+function onAjaxTest()
+{
+    echo "Called";
+}
+
+function onProcess() {
+    echo 'submit';
+}
+
 function onMailSent() {
-    die;
+    console.log('onMailSent');
     $formVars = [
         'receivermail' => post('receivermail'),
         'receivername' => post('receivername'),
@@ -33,25 +42,36 @@ function onMailSent() {
 ?>
 ==
 <div class="confirm-container">
-    <!--This will contain the confirmation when the email is successfully sent-->
+    <!--This will contain the confirmation when the email is successfully sent  {{this.theme.email_address}}-->
 </div>
-<form class="csontactForm" role="form"
+{#<form class="contactForm" role="form"
       data-request="onMailSent"
       data-request-update="'contactForm/confirm': '.confirm-container'"
-      data-request-data="receivermail: '{{this.theme.email_address}}', receivername:'{{this.theme.company_name}}', succeesstext: '{{this.theme.contact_succeess_text}}', receiverregard: '{{this.theme.contact_regard}}', mailtemplate: '{{this.theme.mail_template}}'"
-      >
+      data-request-data="receivermail: ' {{this.theme.email_address}}', receivername:'{{this.theme.company_name}}', 
+      succeesstext: '{{this.theme.contact_success_text}}', receiverregard: '{{this.theme.contact_regard}}', mailtemplate: '{{this.theme.mail_template}}'"
+      >#}
+{#<form class="contactForm" role="form" onsubmit="$(this).request('onProcess'); return false;">#}
+<form class="contactForm" role="form" >
+
     <div class="form-groups">
+        
+        <input type="hidden" name="contact_success_text" value="{{this.theme.contact_success_text}}"/>
+        <input type="hidden" name="contact_regard" value="{{this.theme.contact_regard}}"/>
+        <input type="hidden" name="mail_template" value="{{this.theme.mail_template}}"/>
+
         <div class="form-group">
-            <input type="text" class="form-control" name="name" required placeholder="Name">
+            <input type="text" class="form-control" value="Marc Wensauer" name="name" _required placeholder="Name">
         </div>
         <div class="form-group">
-            <input type="email" class="form-control" name="email" required placeholder="Email">
+            <input type="email" class="form-control" value="daslicht@ansolas.de" name="email" _required placeholder="Email">
         </div>
+        
         <div class="form-group">
-            <input type="text" class="form-control" name="regard" required placeholder="Regard">
+            <input type="text" class="form-control" value="Some Subject" name="email_subject" _required placeholder="Subject">
         </div>
+
         <fieldset class="form-group">
-            <textarea class="form-control" name="message" rows="6" required placeholder="Your message to us"></textarea>
+            <textarea class="form-control"  name="message" rows="6" _required placeholder="Your message to us">this is the content</textarea>
         </fieldset>
         {% if __SELF__.enableCaptcha %}
             <div class="form-group">
