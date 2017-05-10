@@ -1,9 +1,5 @@
 
-
 #slideshowHomeHTML {
-    
-
-    
     .mask{
         width: 100%;
         height: 100%;
@@ -55,7 +51,11 @@
 
         .carousel-caption-content{
             h1 {
+                font-size: 3rem;
                 color: $white;
+            }
+            p {
+                font-size: 1.1rem;
             }
             color: $white;
         }

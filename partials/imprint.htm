@@ -31,12 +31,15 @@ snippetProperties[showcopyright][options][] = ""
     <div class="container col-xs-8 offset-xs-2 pl-0 py-5">
         <div class="row">
             <div class="col-xs-12 col-md-8 text-center text-md-left py-4">
+                {% content 'rechtstexte/impressum' %}
+                {#
                 <strong><h5>{{headertitle}}</h5></strong>
                 <div class="fg-gray-light">
                     <strong>{{ this.theme.company_name }}</strong>
                     <br><a href="tel:{{ str_camel(this.theme.phone_number) }}">{{ this.theme.phone_number }}</a>
                     <br><a href="mailto:{{ this.theme.email_address }}">{{ this.theme.email_address }}</a>
                 </div>
+                #}
             </div>
 
             {#<div class="col-xs-12 col-md-4">

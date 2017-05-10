@@ -34,18 +34,21 @@
 //     font-family: ShadowsIntoLightTwo-Regular ;
 //     src: url(https://kräutermichel.de/themes/kraeutermichel-october-theme/assets/fonts/ShadowsIntoLightTwo-Regular.ttf);
 // }
-@font-face {
-    font-family: LibreFranklinLight ;
-    src: url(/themes/kraeutermichel-october-theme/assets/fonts/LibreFranklin-Light.ttf);
-}
+// @font-face {
+//     font-family: LibreFranklinLight ;
+//     src: url(/themes/kraeutermichel-october-theme/assets/fonts/LibreFranklin-Light.ttf);
+// }
 
-@font-face {
-    font-family: LibreFranklinSemiBold ;
-    src: url(/themes/kraeutermichel-october-theme/assets/fonts/LibreFranklin-SemiBold.ttf);
-}
+// @font-face {
+//    font-family: LibreFranklinSemiBold ;
+//    src: url(/themes/kraeutermichel-october-theme/assets/fonts/LibreFranklin-SemiBold.ttf);
+// }
 
 //font-family-sans-serif-italic
-@font-face {
-    font-family: ShadowsIntoLightTwo-Regular ;
-    src: url(/themes/kraeutermichel-october-theme/assets/fonts/ShadowsIntoLightTwo-Regular.ttf);
-}
+// @font-face {
+//     font-family: ShadowsIntoLightTwo-Regular ;
+//     src: url(/themes/kraeutermichel-october-theme/assets/fonts/ShadowsIntoLightTwo-Regular.ttf);
+// }
+
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin:300,600|Shadows+Into+Light+Two');
+

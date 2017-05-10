@@ -4,85 +4,60 @@
     }
 }
 
-
 #krauter-abc, #krauter-abc-kraut {
-
-   // .container-fluid {
-       // max-width:1320px;
-        .row {
-            .krauterlist-wrapper {
-                h1{
-                    color:$black;
-                }
-                .grid {
-                    .grid-sizer { 
-					    width: 40%; 
-				    }
-                    margin: 0 auto;
-                    .grid-item {
-                        width:  300px; //40%;
-                        height: 263px;// height: 257px;
-                        float: left;
-                        margin-bottom: 30px;
-                        padding: 0.2rem;
-                        background-color: white;
-                        transition-delay: 0s;
-                        transition-duration: 0.3s;
-                        transition-property: box-shadow;
-                        transition-timing-function: ease;
-                        > * {
-                            text-decoration: none;
-                            transition-delay: 0s;
-                            transition-duration: 0.3s;
-                            transition-property: all;
-                            transition-timing-function: ease;
+    .row {
+        .krauterlist-wrapper {
+            h1{
+                color:$black;
+            }
+            .grid {
+                .grid-sizer { 
+				    width: 40%; 
+			    }
+                margin: 0 auto;
+                .grid-item {
+                    width:  300px; //40%;
+                    height: 263px;// height: 257px;
+                    float: left;
+                    margin-bottom: 30px;
+                    padding: 0.2rem;
+                    background-color: white;
+                    .featured-image {
+                        text-decoration: none;
+                        transition: box-shadow .25s;
+                        &:hover {
+                            @extend .z-depth-1-half;
                         }
-                        .featured-image{
-                            &:hover {
-                                @extend .z-depth-1-half;
-                                            
-                            }
-                        }
-                        .card-block {
-                
-                            .content-container {
-                      
-                            }
-
-                            .card-title {
-                                font-size: $font-size-base;
-                                color: $black;
-                            }
+                    }
+                    .card-block {
+                        .card-title {
+                            font-size: $font-size-base;
+                            color: $black;
                         }
                     }
                 }
-            }
-            .krauterlist-nav-wrapper {
-                display: flex;
-                justify-content: center;
-                a{
-                    padding: 0 0.3rem 0 0.3rem;
-                    h1, h2, h3{
-                        font-family: $font-family-sans-serif-italic;
-                        color:$green;
-                    }
-                }
-            }
-            .krauterlist-pagination-wrapper {
-                // .pagination{
-                //     display: flex;
-                //     justify-content: center !important;
-                //     li {
-                //         a,span {
-                //             padding: .5rem .75rem;
-                //         }
-                //     }
-                // }
             }
         }
-    //}
-
+        .krauterlist-nav-wrapper {
+            display: flex;
+            justify-content: center;
+            a{
+                padding: 0 0.3rem 0 0.3rem;
+                h1, h2, h3{
+                    font-family: $font-family-sans-serif-italic;
+                    color:$green;
+                }
+            }
+        }
+    }
 }
+
+.mask {
+    .btn {
+         @extend .z-depth-0;
+    }
+}
+
 
 #krauter-abc-kraut {
 
@@ -93,11 +68,6 @@
         h1 {
             font-family: $font-family-sans-serif-italic;
         }
-    }
-    
-    .kraut-content-wrapper{
-       // max-width: $max-width;
-       // margin: 0 auto;
     }
 }
 

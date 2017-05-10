@@ -6,7 +6,6 @@ snippetProperties[headertext][type] = "string"
 snippetProperties[headertext][default] = "Kontakt"
 snippetProperties[headertext][options][] = ""
 ==
-
 <div class="" id="kontakt-wrapper" data-target="#contact">
     <header class="py-3">
         <div class="container">
@@ -38,13 +37,11 @@ snippetProperties[headertext][options][] = ""
                             <b>Kontakt:</br></b>
                             Festnetz: {{ this.theme.address_phone }}</br>
                             Mobil: {{ this.theme.address_mobile }}</br>
-                            E-Mail:  {{ this.theme.address_mobile }}</br>
+                            E-Mail:  <a href="mailto:{{ this.theme.email_address }}">{{ this.theme.email_address }}</a></br>
                         </p>
 
-                        <p>E-Mail:{{ this.theme.email_address }}
-                    </p>
                     </div>
-     
+                </div>
             </div>
         </div>
     </header>
