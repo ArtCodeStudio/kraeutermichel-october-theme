@@ -32,7 +32,7 @@ description = "Default layout"
         
         {% partial 'navigation/navigation' class="bg-white-transparent" %}
 
-        <div class="container text-center mt-5 pt-2 leistungen-subnav">
+        <div class="container text-center mt-5 pt-3 leistungen-subnav">
             <div class="row">            
                 <div class="col-xs-12 text-center nav-wrapper">
                     {% partial 'leistungen/_sub_nav.htm' active =  str_snake(this.page.title , '') | lowercase %}
