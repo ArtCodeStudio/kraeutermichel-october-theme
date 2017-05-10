@@ -14,23 +14,14 @@ items:
             cssClass: leistungen
             isExternal: '0'
     -
-        title: Events
-        nesting: '0'
-        type: static-page
-        url: ''
-        code: events
-        reference: events
-        cmsPage: ''
-        replace: '0'
-        viewBag:
-            isHidden: '0'
-            cssClass: events
-            isExternal: '0'
-    -
         title: 'Kräuter ABC'
+        nesting: ''
         type: cms-page
+        url: ''
         code: kräuterabc
         reference: krauter-abc
+        cmsPage: ''
+        replace: ''
         viewBag:
             isHidden: '0'
             cssClass: kräuterabc

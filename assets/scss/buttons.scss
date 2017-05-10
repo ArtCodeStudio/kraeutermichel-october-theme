@@ -24,6 +24,22 @@
 .btn {
     &.btn-secondary
     {
+        &.green-white-fill {
+            border-color: $green;
+            color: $green;
+            background-color: $transparent;
+            padding: 0.7rem 2rem;
+            font-size: $font-size-sm;
+            //box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+            transition-delay: 0s;
+            transition-duration: 0.3s;
+            transition-property: all;
+            transition-timing-function: ease;        
+        }
+        &.green-white-fill:hover  {
+            background-color: $transparent;
+            @extend .z-depth-1-half;
+        }
         &.no-fill-white {
             @include button-no-fill($white);
         }

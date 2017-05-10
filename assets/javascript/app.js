@@ -296,9 +296,17 @@ var initKontakt = function (dataset) {
 	$('.navbar-nav .kontakt a').addClass( '_active' );
 	$('#sidebar-wrapper .list-group .kontakt').addClass( '_active' );
 
-	$(document).on('submit','.contactForm', function(e) {
+	$(document).on('submit','.contact-form', function(e) {
+		var contactForm = $('.contact-form');
+		var confirmContainer = $('.confirm-container');
 		e.preventDefault();
-		var dataString = $('.contactForm').serialize();
+		var dataString = contactForm.serialize();
+		
+		contactForm.animate({
+			opacity: 0,
+		}, 250, function() {
+			confirmContainer.removeClass('hidden');
+		});
 
         jQuery.ajax({
             url: "/send-mail",
@@ -311,8 +319,6 @@ var initKontakt = function (dataset) {
 				console.log(e);
 			}
         });
-    
-    
 	});
 }
 

@@ -1,85 +1,24 @@
 [viewBag]
 ==
-<?php
+<div class="contact-form-wrapper mb-3">
 
-function onAjaxTest()
-{
-    echo "Called";
-}
 
-function onProcess() {
-    echo 'submit';
-}
+    <div class="confirm-container hidden">
+      Deine Nachricht ist auf dem Weg.
+    </div>
 
-function onMailSent() {
-    console.log('onMailSent');
-    $formVars = [
-        'receivermail' => post('receivermail'),
-        'receivername' => post('receivername'),
-        'succeesstext' => post('succeesstext'),
-        'receiverregard' => post('receiverregard'),
-        'mailtemplate' => post('mailtemplate'),
-        'name' => post('name'),
-        'email' => post('email'),
-        'regard' => post('regard'),
-        'sendermessage' => post('message'),
-    ];
-    
-    $formVars['receiverregard'] = str_replace("{{name}}", $formVars['name'], $formVars['receiverregard']);
-    $formVars['receiverregard'] = str_replace("{{regard}}", $formVars['regard'], $formVars['receiverregard']);
-    
-    $buildOwnerMessage = function ($message) use ($formVars) {
-        // TODO use email and name from backend or theme settings
-        $message->to($formVars['receivermail'], $formVars['receivername']);
-        $message->subject($formVars['receiverregard']);
-    };
-
-    // mail to site owner
-    Mail::send($formVars['mailtemplate'], $formVars, $buildOwnerMessage);
-      
-    $this['result'] = $formVars['succeesstext'];
-}
-?>
-==
-<div class="confirm-container">
-    <!--This will contain the confirmation when the email is successfully sent  {{this.theme.email_address}}-->
-</div>
-{#<form class="contactForm" role="form"
-      data-request="onMailSent"
-      data-request-update="'contactForm/confirm': '.confirm-container'"
-      data-request-data="receivermail: ' {{this.theme.email_address}}', receivername:'{{this.theme.company_name}}', 
-      succeesstext: '{{this.theme.contact_success_text}}', receiverregard: '{{this.theme.contact_regard}}', mailtemplate: '{{this.theme.mail_template}}'"
-      >#}
-{#<form class="contactForm" role="form" onsubmit="$(this).request('onProcess'); return false;">#}
-<form class="contactForm" role="form" >
-
-    <div class="form-groups">
-        
+    <form class="contact-form no-barba">
         <input type="hidden" name="contact_success_text" value="{{this.theme.contact_success_text}}"/>
         <input type="hidden" name="contact_regard" value="{{this.theme.contact_regard}}"/>
         <input type="hidden" name="mail_template" value="{{this.theme.mail_template}}"/>
 
-        <div class="form-group">
-            <input type="text" class="form-control" value="Marc Wensauer" name="name" _required placeholder="Name">
-        </div>
-        <div class="form-group">
-            <input type="email" class="form-control" value="daslicht@ansolas.de" name="email" _required placeholder="Email">
-        </div>
-        
-        <div class="form-group">
-            <input type="text" class="form-control" value="Some Subject" name="email_subject" _required placeholder="Subject">
-        </div>
+        <input type="text"  name="name" placeholder="Name" value="" required>
+        <input type="text"  name="telefon" placeholder="Telefon" value="" required>
+        <input type="email" name="email" placeholder="Email Address" value="" required>
+        <textarea name="message" placeholder="Nachricht" rows="9" ></textarea>
 
-        <fieldset class="form-group">
-            <textarea class="form-control"  name="message" rows="6" _required placeholder="Your message to us">this is the content</textarea>
-        </fieldset>
-        {% if __SELF__.enableCaptcha %}
-            <div class="form-group">
-                <div class="g-recaptcha" data-sitekey="{{ __SELF__.siteKey }}"></div>
-            </div>
-        {% endif %}
-        <div class="d-flex align-items-end flex-column">
-            <button type="submit" class="btn">Send</button>
-        </div> 
-    </div>
-</form>
+        <button type="submit" class="mt-1 btn btn-secondary green-white-fill">Nachricht senden</button>
+    </form>
+    {#onblur="this.setAttribute('value', this.value);"#}
+    {#<span class="validation-text">Please enter a valid email address.</span>#}
+</div>

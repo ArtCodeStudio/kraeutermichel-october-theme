@@ -3409,52 +3409,80 @@ form:
                 default: 340px
                 tab: Bootstrap 4.0.0-alpha.6
                 assetVar: pre-scrollable-max-height
+            
             contact_success_text:
                 label: Contact form success text
                 type: text
                 default: Sent message successfully
+                tab: eMail
             contact_regard:
                 label: Contact form success text
                 type: text
                 comment: The regard for your contact requests
                 default: 'New request from {{name}}: {{regard}}'
+                tab: eMail
             mail_template:
                 label: Mail Template
                 type: text
                 comment: The template code you want to use
                 default: 'kontakt-krautermichel'
+                tab: eMail
+
+
+
     fields:
-        color:
-            label: Color scheme
-            type: dropdown
-            comment: Choose the color schema you like
-            options:
-                blue: Blue
-                purple: Purple
-                orange: Orange
-                red: Red
-                green: Green
-            default: blue
+        # color:
+        #     label: Color scheme
+        #     type: dropdown
+        #     comment: Choose the color schema you like
+        #     options:
+        #         blue: Blue
+        #         purple: Purple
+        #         orange: Orange
+        #         red: Red
+        #         green: Green
+        #     default: blue
         site_name:
-            label: Site name
+            label: Site Name
             type: text
             comment: The website name as it should appear on the front-end
-            default: Healthy Teeth
+            default: ''
         company_name:
             label: Company name
             type: text
             comment: Company name of your site
-            default: Healthy Teeth
-        phone_number:
-            label: Phone
-            type: text
-            comment: Phone number
-            default: +01 101 01 01 01 01
+            default: ''
+        # phone_number:
+        #     label: Phone
+        #     type: text
+        #     comment: Phone number
+        #     default: +01 101 01 01 01 01
         email_address:
             label: Email
             type: text
             comment: Email address for contact form and imprint
             default: info@domain.ltd
+
+        address_street:
+            label: Strasse
+            type: text
+            default: 'Südersteinstrasse 8'
+            tab: Kontakt
+        address_city:
+            label: Stadt
+            type: text
+            default: '27472 Cuxhaven'
+            tab: Kontakt
+        address_phone:
+            label: Telefon
+            type: text
+            default: '+49 4721 6638 040'
+            tab: Kontakt
+        address_mobile:
+            label: Mobil
+            type: text
+            default: '+49 173 5979184'
+            tab: Kontakt
 require:
     - RainLab.Pages
     - JumpLink.Slideshow
