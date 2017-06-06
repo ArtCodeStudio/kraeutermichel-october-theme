@@ -4,7 +4,7 @@
     <footer class="container main-footer">
 
         {# DESKTOP #}
-        <div class="row hidden-md-down ">
+        <div class="row hidden-md-down">
             
             <div class="col col-xs-2" id="footer-logo-container">
                 <a href ='/'>
@@ -47,30 +47,29 @@
         </div>
 
 
-        {# #}
-        <div class="row hidden-sm-down hidden-lg-up">
+         {##}
+        {#<div class="row hidden-sm-down hidden-lg-up">
             
             <div class="col col-xs-2" id="footer-logo-container">
                 <img class="mt-2 mb-2" src="{{ 'assets/images/icons/logo-2.svg' |theme }}" alt="">
             </div>
-
             <div id="flex-wrapper" class="col col-xs-10 px-0">
                 <div class="text-left" id="footer-text">
                     <div class="mt-2 mb-2">
                         <b>
-                            Hier erfährst du wissenswertes über Kräuter,<br> neue Rezepte, Tipps und Inspiration.
+                            Hier erfährst du wissenswertes über <br> 
+                            Kräuter, neue Rezepte, <br>
+                            Tipps und Inspiration.
                         </b>
                         <br> 
-                        Alles über Wirkung, Geschmack und Herkunft.
+                        Alles über Wirkung, <br>
+                        Geschmack und Herkunft.
                     </div>
                 </div>
-                
                 <nav class="">
-
                     <div class="row mt-2 mb-2 text-left ">
                         <div class="col first">
                             <a href="/leistungen-krauter">Leistungen</a>
-                            {#<a href="/events">Events</a>#}
                             <a href="/krauter-abc">Kräuter von A bis Z</a>
                             <a href="/blog">Blog</a>
                         </div>
@@ -83,16 +82,14 @@
                     </div>
                 </nav>
             </div>
-
-        </div>
+        </div>#}
 
 
         {# MOBILE #}
-        <div class="row hidden-md-up">
+        <div class="row hidden-lg-up">
             
             <div class="col col-xs-12 offset-xs-2 mb-2 mt-2" id="footer-mobile-container">
                 
-                {# LOGO #}
                 <div class='row'>
                     <img class="mb-2" src="{{ 'assets/images/icons/logo-2.svg' |theme }}" alt="">
                 </div>
@@ -123,9 +120,7 @@
                     </ul>
                 </div>
 
-
             </div>
-
         </div>
 
     </footer>
