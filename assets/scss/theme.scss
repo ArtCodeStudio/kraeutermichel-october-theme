@@ -106,6 +106,13 @@ body {
     overflow-x: hidden;
 }
 
+/**
+ * General content height, make footer always on bottom
+ */
+#barba-wrapper {
+    min-height: calc(100vh - 148px);
+}
+
 h1, h2, h3, h4, h5, h6, .display-1, .display-2, .display-3, .display-4 {
     color: $brand-primary;
 }

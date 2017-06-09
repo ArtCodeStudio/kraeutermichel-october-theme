@@ -325,9 +325,11 @@ var initKontakt = function (dataset) {
 var initImpressum = function (dataset) { 
 	// $('.navbar-nav .kontakt a').addClass( '_active' );
 	// $('#sidebar-wrapper .list-group .kontakt').addClass( '_active' );
+}
 
-
-
+var initCredits = function (dataset) { 
+	// $('.navbar-nav .kontakt a').addClass( '_active' );
+	// $('#sidebar-wrapper .list-group .kontakt').addClass( '_active' );
 }
 
 
@@ -348,7 +350,8 @@ var initTemplate = {
 	'blog': initBlog,
 	'blogpost': initBlogPost,
 	'kontakt': initKontakt,
-	'impressum': initImpressum
+	'impressum': initImpressum,
+	'credits': initCredits
 };
 
 
