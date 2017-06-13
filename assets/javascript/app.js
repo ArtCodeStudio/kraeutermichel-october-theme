@@ -29,8 +29,7 @@ var prevButton = `
 		<svg version="1.1" id="left-arrow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 			viewBox="0 0 29.6 58.1" style="enable-background:new 0 0 29.6 58.1;" xml:space="preserve">
 			<g>
-			<path class="fill-color" d="M28.9,0c0.1,0,0.3,0,0.4,0.1c0.2,0.2,0.2,0.5,0,0.7L1.4,28.7l28.1,28.6c0.2,0.2,0.2,0.5,0,0.7s-0.5,0.2-0.7,0L0,28.7
-			L28.5,0.1C28.6,0,28.8,0,28.9,0z"/>
+			<path class="fill-color" d="M28.9,0c0.1,0,0.3,0,0.4,0.1c0.2,0.2,0.2,0.5,0,0.7L1.4,28.7l28.1,28.6c0.2,0.2,0.2,0.5,0,0.7s-0.5,0.2-0.7,0L0,28.7L28.5,0.1C28.6,0,28.8,0,28.9,0z"/>
 			</g>
 		</svg>
 	</button>
@@ -140,6 +139,15 @@ var initSlideshowHome = function (selector) {
 			arrows: true,
 			prevArrow: prevButton,
     		nextArrow: nextButton,
+			responsive: [
+				{
+				breakpoint: 576,
+					settings: {
+						arrows: false,
+					}
+				}
+			]
+
 		}).on('afterChange', function(event, slick, currentSlide, nextSlide){
 			var tmpBodyClass = $(slick.$slides.get(currentSlide)).data('section');
 			if (tmpBodyClass !== 'blog'){
@@ -273,7 +281,7 @@ var initKräuterABC = function (dataset) {
 			});
 		}	
 		krauterListInit();
-		// cache.krauterLexiconInitialized = true;
+		// cache.krauterLexiconInitialized = true; 
 	// }
 }
 
