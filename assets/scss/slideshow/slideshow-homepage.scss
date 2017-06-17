@@ -17,8 +17,8 @@
         // viewport WIDTH for VERTICAL padding makes no sense
         // padding: 3vw;
         // use fixed padding to make room for arrows
-        padding: 0 3.5rem;
-        text-align: center;
+        padding: 0 4rem;
+        //text-align: center;
         line-height:1.3;
         
         // Extra large devices (large desktops, 1200px and up)
@@ -36,15 +36,26 @@
 
         // Small devices (landscape phones, 576px and up)
         @media (min-width: 576px) and (max-width: 767px) { 
+            padding: 0 3.5rem;
             .carousel-caption-content {
                 h1 {
                     font-size: 2.5rem !important;
                 }
             }
-            text-align: center !important;
+            // text-align: center !important;
             
         }
-        @media (max-width: 576px)  { 
+        @media (min-width: 350px) and (max-width: 576px)  { 
+            padding: 1rem 1.5rem;
+            
+            .slick-prev {
+                display:none !important;
+            }
+            .slick-next {
+                display:none !important;
+            }
+        }
+        @media (max-width: 349px)  { 
             padding: 1rem 3%;
             
             .slick-prev {
@@ -60,10 +71,13 @@
             display: inline-block;
             margin: auto;
             padding: 0;
-            
+            @media (min-width: 576px) {
+                max-width: 80%;
+            }
             @media (min-width: 350px) and (max-width: 575px) { 
                 // only for small and mobile displays: fixed small top-spacing so that content is visible
                 margin: 8% auto auto;
+                max-width: 90%;
                 h1 {
                     font-size: 2.5rem !important;
                 }
