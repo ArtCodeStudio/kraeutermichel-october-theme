@@ -10,6 +10,8 @@ description = "Info layout"
         <meta name="author" content="Pascal Garber, Marc Wensauer">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
+        
+        {% partial 'jumplink-layout/jumplink-layout-favicons' %}
         {% styles %}
         {% if this.theme.color %}
             {% set style = 'assets/scss/theme-' ~ this.theme.color ~ '.scss' %}

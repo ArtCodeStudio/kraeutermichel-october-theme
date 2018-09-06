@@ -7,6 +7,27 @@ code: Kräutermichel
 form:
     tabs:
         fields:
+            theme_color:
+                label: 'Theme color'
+                type: colorpicker
+                comment: '<br><br><br>Color of the <a href="https://developers.google.com/web/updates/2015/08/using-manifest-to-set-sitewide-theme-color" target="_blank">browser address bar on Smartpohnes</a>.'
+                commentHtml: true
+                default: '#ffffff'
+                tab: Favicons
+            tile_color:
+                label: 'Tile color'
+                type: colorpicker
+                comment: '<br><br><br>Color of the <a href="https://docs.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-helpandsupport-helpandsupport-tilecolor" target="_blank">tile on Windows Phone</a>.'
+                commentHtml: true
+                default: '#ffffff'
+                tab: Favicons
+            mask_color:
+                label: 'Mask color'
+                type: colorpicker
+                comment: '<br><br><br>Color of the <a href="https://steemit.com/deutsch/@rilc0n/icon-fuer-angepinnte-tabs-in-safari-erstellen" target="_blank">icon on Safari</a>.'
+                commentHtml: true
+                default: '#ffffff'
+                tab: Favicons
             bs4-colors:
                 label: Colors
                 type: section
@@ -3427,21 +3448,7 @@ form:
                 comment: The template code you want to use
                 default: 'kontakt-krautermichel'
                 tab: eMail
-
-
-
     fields:
-        # color:
-        #     label: Color scheme
-        #     type: dropdown
-        #     comment: Choose the color schema you like
-        #     options:
-        #         blue: Blue
-        #         purple: Purple
-        #         orange: Orange
-        #         red: Red
-        #         green: Green
-        #     default: blue
         site_name:
             label: Site Name
             type: text
@@ -3452,11 +3459,6 @@ form:
             type: text
             comment: Company name of your site
             default: ''
-        # phone_number:
-        #     label: Phone
-        #     type: text
-        #     comment: Phone number
-        #     default: +01 101 01 01 01 01
         email_address:
             label: Email
             type: text
