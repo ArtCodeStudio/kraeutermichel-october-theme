@@ -5,6 +5,10 @@ description = "Hier erfährst du alles über Wirkungen von Heilkräuter und wert
 meta_title = "Kräuter ABC"
 meta_description = "Hier erfährst du alles über Wirkungen von Heilkräuter und wertvolle Tipps für besten Geschmack in deiner Kräuterküche."
 is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+contentType = "html"
+force_show = 0
 
 [KrautPage]
 ==
@@ -16,7 +20,7 @@ is_hidden = 0
         <div class="row hidden-sm-down" > 
             <nav class="col-xs-12 text-center krauterlist-nav-wrapper pt-3">
                 {% for letter in 'a'..'z' %}     
-                    {% set base_url = 'https://kräutermichel.de/krauter-abc' %}
+                    {% set base_url = 'https://krautermichel.de/krauter-abc' %}
                     {#{% set base_url = '/krauter-von-bis-z' %}#}
                     {% set param =  "?query=#{ letter|upper}" %} 
                     <a href="{{ base_url }}/{{ param }}"> <h3>{{ letter|upper }}</h3> </a>

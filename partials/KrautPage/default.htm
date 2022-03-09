@@ -1,3 +1,5 @@
+[viewBag]
+==
 {#parent 
   <div class="row">            
             <div class="col-xs-12 text-center kraut-wrapper pt-1" style="min-height:1000px">
@@ -10,7 +12,7 @@
     {#{% set image = kraut.image|mediathumb_resize('width', 350) %}#}
     {% set image = kraut.image |media %}
 {% else %}
-    {% set image = 'https://kräutermichel.de/storage/app/media/Kraeuter_von_A_bis_Z/Platzhalter.jpg' %}
+    {% set image = 'https://krautermichel.de/storage/app/media/Kraeuter_von_A_bis_Z/Platzhalter.jpg' %}
 {% endif %}
 
 <div class="featured-image text-left mt-2"> 
@@ -24,9 +26,3 @@
 <div class="text-left kraut-content-wrapper mt-3">
     {{kraut.description|raw}}
 </div>
-
-
-
-
-
-

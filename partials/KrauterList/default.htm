@@ -10,12 +10,12 @@
 <div class="grid _hidden-sm-down" >
 
     {% for kraut in krauter %}
-        <a class="grid-item" href="https://kräutermichel.de/krauter-abc/{{kraut.slug}}">
+        <a class="grid-item" href="https://krautermichel.de/krauter-abc/{{kraut.slug}}">
             
             {% if kraut.image  %}
                 {% set image = kraut.image|mediathumb_resize('width', 350) %}
             {% else %}
-                {% set image = 'https://kräutermichel.de/storage/app/media/Kraeuter_von_A_bis_Z/Platzhalter.jpg' %}
+                {% set image = 'https://krautermichel.de/storage/app/media/Kraeuter_von_A_bis_Z/Platzhalter.jpg' %}
             {% endif %}
        
             <div class="featured-image text-center "> 
