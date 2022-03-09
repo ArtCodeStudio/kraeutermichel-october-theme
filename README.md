@@ -1,5 +1,4 @@
-# Viola Theme
-Bootstrap 4 One Page October Theme for Medical Professionals. There is a [demo](http://healthyteeth.jumplink.eu/) and a [customized productive](http://www.thp-garber.de) example of this theme.
+# Kräutermichel October Theme
 
 ![Theme Preview](assets/images/theme-preview.png)
 
@@ -18,11 +17,6 @@ Bootstrap 4 One Page October Theme for Medical Professionals. There is a [demo](
 
 ## Bootstrap 4
 To make it possible to use Bootstrap 4 Sass files directly we have create a fork of Bootstrap 4 called [Bootstrap 4 Backward](https://github.com/JumpLinkNetwork/bootstrap-backward).
-
-## Variables
-All Bootstrap 4 Variables full customizable on runtime:
-
-![Alt text](/theme_settings.png?raw=true "Optional Title")
 
 ## Install
 

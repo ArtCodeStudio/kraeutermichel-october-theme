@@ -1,9 +1,9 @@
 {
-  "name": "Viola",
+  "name": "kraeutermichel-october-theme",
   "version": "2.0.0",
-  "description": "One Page October Theme for Medical Professionals by JumpLink",
+  "description": "Webpage of krautermichel.de",
   "main": "index.js",
-  "homepage": "https://www.jumplink.eu",
+  "homepage": "https://www.krautermichel.de/",
   "scripts": {
     "preinstall": "bower install",
     "postinstall": "npm run build",
@@ -17,7 +17,7 @@
     "watch": "npm run sass -- -w",
     "theme_settings": "node ./utilities/bootstrap_theme_settings.js && node ./utilities/merge_theme_settings.js"
   },
-  "author": "Pascal Garber <pascal.jumplink.eu>",
+  "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "MIT",
   "dependencies": {
     "autoprefixer": "^6.3.6",
